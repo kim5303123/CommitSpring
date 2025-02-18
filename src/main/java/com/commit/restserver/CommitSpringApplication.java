@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @MapperScan(basePackages = "com.commit.mappers")
-@ComponentScan(basePackages = {"com.commit"} )
+@ComponentScan(basePackages = { "com.commit" })
 public class CommitSpringApplication {
 
 	public static void main(String[] args) {
