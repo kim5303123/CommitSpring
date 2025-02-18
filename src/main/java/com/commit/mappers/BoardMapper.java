@@ -1,5 +1,5 @@
 package com.commit.mappers;
 
-public class BoardMapper {
+public interface BoardMapper {
 
 }
