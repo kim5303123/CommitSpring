@@ -29,5 +29,5 @@ public class DegreeVo {
 	String graduateSchool;
 	//	대학원 전공
 	String graduateMajor;
-	
+	 
 }

@@ -25,5 +25,5 @@ public class ReviewVo {
 	String regDate;
 	//	별점
 	String rating;
-	
+	 
 }

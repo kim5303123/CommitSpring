@@ -18,7 +18,7 @@ public class MypageVo {
 	//	포인트
 	String point;
 	
-	
+	 
 	
 
 	
