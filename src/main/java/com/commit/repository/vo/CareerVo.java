@@ -19,5 +19,5 @@ public class CareerVo {
 	String salary;
 	//	직업
 	String job;
-	
+	 
 }

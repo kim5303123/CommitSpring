@@ -23,5 +23,5 @@ public class BoardVo {
 	String 	plan;
 	//	소개
 	String 	introduction;
-	
+	 
 }
