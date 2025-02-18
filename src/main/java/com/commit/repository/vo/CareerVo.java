@@ -11,17 +11,13 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class BoardVo {
+public class CareerVo {
 
-	//	ID
+	//	id
 	Integer id;
-	//	유저ID
-	Integer userId;
-	//	제목
-	String 	title;
-	//	계획
-	String 	plan;
-	//	소개
-	String 	introduction;
+	//	연봉
+	String salary;
+	//	직업
+	String job;
 	
 }

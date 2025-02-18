@@ -4,11 +4,9 @@
 	"http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		
 		<typeAlias alias="UserVo" type="com.commit.repository.vo.UserVo"/>
 	</typeAliases>
 	<mappers>
-		
 		<mapper resource="mybatis/mappers/users.xml" />
 	</mappers>
 </configuration>	
