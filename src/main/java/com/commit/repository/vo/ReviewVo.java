@@ -11,17 +11,19 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class BoardVo {
+public class ReviewVo {
 
 	//	ID
 	Integer id;
-	//	유저ID
-	Integer userId;
+	//	마이페이지 ID
+	Integer mypage_id;
 	//	제목
-	String 	title;
-	//	계획
-	String 	plan;
-	//	소개
-	String 	introduction;
+	String title;
+	//	내용
+	String contents;
+	//	날짜
+	String regDate;
+	//	별점
+	String rating;
 	
 }

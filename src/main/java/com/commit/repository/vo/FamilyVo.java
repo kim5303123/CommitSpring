@@ -11,17 +11,17 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class BoardVo {
+public class FamilyVo {
 
 	//	ID
 	Integer id;
-	//	유저ID
-	Integer userId;
-	//	제목
-	String 	title;
-	//	계획
-	String 	plan;
-	//	소개
-	String 	introduction;
+	//	어머니	
+	String mother;
+	//	아버지	
+	String father;
+	//	자녀	
+	String child;
+	//	형제자매	
+	String sibling;
 	
 }
