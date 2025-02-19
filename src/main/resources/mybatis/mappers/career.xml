@@ -3,34 +3,22 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.commit.mappers.CareerMapper">
 
-	<!-- RETRIEVE: GET -->
-	<select id="selectAllItems" resultType="careerVo">
-	SELECT id, userId, title, plan, introduction
-	FROM board;
+	<!-- 직장정보 select -->
+	<select id="careerSelect" parameterType="int" resultType="CareerVo">
+	SELECT
+		id,
+		job,
+	    salary,
+	    user_id as userId
+	FROM career
+	WHERE user_id = #{userId}
 	</select>
-	
-	<!-- INSERT: POST -->
-	<insert id="insertItem" parameterType="careerVo">	
-	INSERT INTO board (user_id,title, plan, introduction) 
-	VALUES(#{userId}, #{title}, #{plan}, #{introduction})	
-	</insert>
-	
-	<!-- RETRIEVE: GET -->
-	<select id="selectById" parameterType="int"
-		resultType="careerVo">
-	SELECT * FROM board WHERE id=#{id}	
-	</select>
-	
-	<!-- UPDATE: PUT -->
-	<update id="updateItem" parameterType="careerVo">
-	UPDATE board
-	SET user_id=#{userId}, title=#{title}, plan=#{plan}, introduction=#{introduction}
-	WHERE id=#{id}
-	</update>
-
-	<!-- DELETE: DELETE -->
-	<delete id="deleteItem" parameterType="int">
-	DELETE FROM board WHERE id=#{id}	
-	</delete> 
+	 
+	 
+	 <!-- 직장정보 insert -->
+	 <insert id="careerInsert" parameterType="CareerVo">
+	 INSERT INTO career (id, salary, job, user_id) 
+	 VALUES (#{id}, #{salary}, #{job}, #{userId});
+	 </insert>
 	 
 </mapper>	

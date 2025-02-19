@@ -3,34 +3,22 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.commit.mappers.ProfileMapper">
 
-	<!-- RETRIEVE: GET -->
-	<select id="selectAllItems" resultType="profileVo">
-	SELECT id, userId, title, plan, introduction
-	FROM board;
+	<!-- 신상정보 select문 -->
+	<select id="profileSelect" parameterType="MypageVo" resultType="MapageVo">
+	SELECT 
+		p.weight,
+		p.height,
+	    p.mbti, 
+	    p.hobby, 
+	    p.photo, 
+	    p.military, 
+	    p.religion, 
+	    p.wealth, 
+	    p.marriage, 
+	    p.disease
+	FROM user u
+	JOIN profile p ON u.id = p.user_id
+	WHERE u.id = #{userId}
 	</select>
-	
-	<!-- INSERT: POST -->
-	<insert id="insertItem" parameterType="profileVo">	
-	INSERT INTO board (user_id,title, plan, introduction) 
-	VALUES(#{userId}, #{title}, #{plan}, #{introduction})	
-	</insert>
-	
-	<!-- RETRIEVE: GET -->
-	<select id="selectById" parameterType="int"
-		resultType="profileVo">
-	SELECT * FROM board WHERE id=#{id}	
-	</select>
-	
-	<!-- UPDATE: PUT -->
-	<update id="updateItem" parameterType="profileVo">
-	UPDATE board
-	SET user_id=#{userId}, title=#{title}, plan=#{plan}, introduction=#{introduction}
-	WHERE id=#{id}
-	</update>
-
-	<!-- DELETE: DELETE -->
-	<delete id="deleteItem" parameterType="int">
-	DELETE FROM board WHERE id=#{id}	
-	</delete> 
 	 
 </mapper>	

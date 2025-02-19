@@ -23,48 +23,43 @@ public class CareerController {
 	@Autowired
 	private CareerService careerService;
 	
-//	GET : /api/board
-	@GetMapping
-	public ResponseEntity<List<CareerVo>> getAllItems() {
-		List<CareerVo> items = 
-				careerService.selectAllItems();
-		return ResponseEntity.ok(items);
+	//	GET : /api/career
+	@GetMapping("/{no}")
+	public ResponseEntity<CareerVo> getAllItems(@PathVariable("no") int id) {
+		CareerVo career = careerService.careerSelect(id);
+		return ResponseEntity.ok(career);
 	}
 	
 	
-//	id로 검색
-//	@GetMapping("/{id}")
-//	public ResponseEntity<TodoItem> getTodoById(
-//			@PathVariable("id") Long id) {
-//		Optional<TodoItem> todo = todoRepository.findById(id);
-//		return todo.map(ResponseEntity::ok)
-//				.orElseGet(() -> ResponseEntity.notFound().build());
-//	}
-	
-	
-//	POST : /api/board -> 새로운 항목 생성
+	//	POST : /api/career -> 새로운 항목 생성
 	@PostMapping
-	public ResponseEntity<CareerVo> createItem(@RequestBody CareerVo item) {
-		CareerVo savedItem = careerService.insertItem(item);
-		return ResponseEntity.ok(savedItem);	
+	public ResponseEntity<CareerVo> createCareer(@RequestBody CareerVo career) {
+		int result = careerService.careerInsert(career);
+		return ResponseEntity.ok(career);	
 	}
+	
+	
+	
+	
+	
+	
 	
 //	PUT : /api/board/{id} -> 기존 항목 수정
-	@PutMapping("/{id}")
-	public ResponseEntity<CareerVo> updateItem(@RequestBody CareerVo item,
-			@PathVariable("id") Integer id) {
-		item.setId(id);
-		CareerVo updatedItem = careerService.updateItem(item);
-		return ResponseEntity.ok(updatedItem);
-	}
+//	@PutMapping("/{id}")
+//	public ResponseEntity<CareerVo> updateItem(@RequestBody CareerVo item,
+//			@PathVariable("id") Integer id) {
+//		item.setId(id);
+//		CareerVo updatedItem = careerService.updateItem(item);
+//		return ResponseEntity.ok(updatedItem);
+//	}
 	
 //	DELETE : /api/board/{id} -> 기존 항목 삭제
-	@DeleteMapping("/{id}")
-	//	Body에 실어 보낼 내용이 없음 -> Void
-	public ResponseEntity<Void> 
-		deleteItem(@PathVariable("id") Integer id) {
-		careerService.deleteItem(id);
-		return ResponseEntity.ok().<Void>build();
-	}
+//	@DeleteMapping("/{id}")
+//	//	Body에 실어 보낼 내용이 없음 -> Void
+//	public ResponseEntity<Void> 
+//		deleteItem(@PathVariable("id") Integer id) {
+//		careerService.deleteItem(id);
+//		return ResponseEntity.ok().<Void>build();
+//	}
 	
 }

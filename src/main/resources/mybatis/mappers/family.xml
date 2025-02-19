@@ -3,34 +3,16 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.commit.mappers.FamilyMapper">
 
-	<!-- RETRIEVE: GET -->
-	<select id="selectAllItems" resultType="familyVo">
-	SELECT id, userId, title, plan, introduction
-	FROM board;
+	<!-- 가족정보 select문 -->
+	<select id="familySelect" parameterType="MypageVo" resultType="MapageVo">
+	SELECT
+		f.mother,
+	    f.father,
+	    f.child, 
+		f.sibling
+	FROM user u
+	JOIN family f ON u.id = f.user_id
+	WHERE u.id = #{userId}
 	</select>
-	
-	<!-- INSERT: POST -->
-	<insert id="insertItem" parameterType="familyVo">	
-	INSERT INTO board (user_id,title, plan, introduction) 
-	VALUES(#{userId}, #{title}, #{plan}, #{introduction})	
-	</insert>
-	
-	<!-- RETRIEVE: GET -->
-	<select id="selectById" parameterType="int"
-		resultType="familyVo">
-	SELECT * FROM board WHERE id=#{id}	
-	</select>
-	
-	<!-- UPDATE: PUT -->
-	<update id="updateItem" parameterType="familyVo">
-	UPDATE board
-	SET user_id=#{userId}, title=#{title}, plan=#{plan}, introduction=#{introduction}
-	WHERE id=#{id}
-	</update>
-
-	<!-- DELETE: DELETE -->
-	<delete id="deleteItem" parameterType="int">
-	DELETE FROM board WHERE id=#{id}	
-	</delete> 
 	 
 </mapper>	

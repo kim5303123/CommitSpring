@@ -6,18 +6,12 @@ import com.commit.repository.vo.CareerVo;
 
 
 public interface CareerMapper {
-//	<select id="selectAllItems" resultType="shopItem">
-	List<CareerVo> selectAllItems();
 	
-//	<insert id="insertItem" parameterType="shopItem">
-	int insertItem(CareerVo item);
+//	<select id="careerSelect" parameterType="int" resultType="CareerVo">
+	CareerVo careerSelect(int id);
 	
-//	<select id="selectById" parameterType="int" resultType="shopItem">
-	CareerVo selectById(Integer id);
+//	<insert id="careerInsert" parameterType="CareerVo">
+	int careerInsert(CareerVo career);
 	
-//	<update id="updateItem" parameterType="shopItem">
-	int updateItem(CareerVo item);
 	
-//	<delete id="deleteItem" parameterType="int">
-	int deleteItem(Integer id);
 }

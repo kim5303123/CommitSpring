@@ -3,34 +3,27 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.commit.mappers.DegreeMapper">
 
-	<!-- RETRIEVE: GET -->
-	<select id="selectAllItems" resultType="degreeVo">
-	SELECT id, userId, title, plan, introduction
-	FROM board;
+	<!-- 학위정보 select -->
+	<select id="degreeSelect" parameterType="int" resultType="DegreeVo">
+	SELECT
+		id,
+	    middle_school as middleSchool,
+	    high_school as highSchool,
+	    high_major as highMajor,
+	    university,
+	    university_major as universityMajor,
+	    graduate_school as graduateSchool,
+	    graduate_major as graduateMajor
+	FROM degree
+	WHERE user_id = #{id}
 	</select>
 	
-	<!-- INSERT: POST -->
-	<insert id="insertItem" parameterType="degreeVo">	
-	INSERT INTO board (user_id,title, plan, introduction) 
-	VALUES(#{userId}, #{title}, #{plan}, #{introduction})	
+	<!-- 학위정보 insert -->
+	<insert id="degreeInsert" parameterType="DegreeVo" >
+	INSERT INTO degree (middle_school, high_school, high_major, university, 
+						university_major, graduate_school, graduate_major, user_id)
+	VALUES (#{middleSchool}, #{highSchool}, #{highMajor}, #{university}, 
+			#{universityMajor}, #{graduateSchool}, #{graduateMajor}, #{userId});
 	</insert>
-	
-	<!-- RETRIEVE: GET -->
-	<select id="selectById" parameterType="int"
-		resultType="degreeVo">
-	SELECT * FROM board WHERE id=#{id}	
-	</select>
-	
-	<!-- UPDATE: PUT -->
-	<update id="updateItem" parameterType="degreeVo">
-	UPDATE board
-	SET user_id=#{userId}, title=#{title}, plan=#{plan}, introduction=#{introduction}
-	WHERE id=#{id}
-	</update>
-
-	<!-- DELETE: DELETE -->
-	<delete id="deleteItem" parameterType="int">
-	DELETE FROM board WHERE id=#{id}	
-	</delete> 
 	 
 </mapper>	

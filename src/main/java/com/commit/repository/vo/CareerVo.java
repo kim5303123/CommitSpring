@@ -20,4 +20,5 @@ public class CareerVo {
 	//	직업
 	String job;
 	 
+	Integer userId;
 }

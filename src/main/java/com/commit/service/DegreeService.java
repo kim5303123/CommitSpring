@@ -15,29 +15,14 @@ public class DegreeService {
 	@Autowired
 	private DegreeMapper degreeMapper;
 	
-	//	목록 불러오기
-	public List<DegreeVo> selectAllItems() {
-		List<DegreeVo> items = 
-				degreeMapper.selectAllItems();
-		return items;
+	// 학위 정보 불러오기
+	public DegreeVo degreeSelect(int id) {
+		DegreeVo degreeVo = degreeMapper.degreeSelect(id);
+		return degreeVo;
 	}
 	
-	//	새 아이템 추가
-	public DegreeVo insertItem(DegreeVo item) {
-		degreeMapper.insertItem(item);
-		//	새로 생성된 item의 PK
-		Integer id = item.getId();
-		return degreeMapper.selectById(id);
+	// 학위 정보 추가
+	public int degreeInsert(DegreeVo degree) {	
+		return degreeMapper.degreeInsert(degree);
 	}
-	
-	//	아이템 수정
-	public DegreeVo updateItem(DegreeVo item) {
-		degreeMapper.updateItem(item);
-		return item;
-	}
-	
-	//	아이템 삭제
-	public int deleteItem(Integer id) {
-		return degreeMapper.deleteItem(id);
-	}	
 }
