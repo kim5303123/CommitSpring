@@ -4,25 +4,25 @@
 <mapper namespace="com.commit.mappers.ProfileMapper">
 
 	<!-- RETRIEVE: GET -->
-	<select id="selectAllItems" resultType="boardVo">
+	<select id="selectAllItems" resultType="profileVo">
 	SELECT id, userId, title, plan, introduction
 	FROM board;
 	</select>
 	
 	<!-- INSERT: POST -->
-	<insert id="insertItem" parameterType="boardVo">	
+	<insert id="insertItem" parameterType="profileVo">	
 	INSERT INTO board (user_id,title, plan, introduction) 
 	VALUES(#{userId}, #{title}, #{plan}, #{introduction})	
 	</insert>
 	
 	<!-- RETRIEVE: GET -->
 	<select id="selectById" parameterType="int"
-		resultType="boardVo">
+		resultType="profileVo">
 	SELECT * FROM board WHERE id=#{id}	
 	</select>
 	
 	<!-- UPDATE: PUT -->
-	<update id="updateItem" parameterType="boardVo">
+	<update id="updateItem" parameterType="profileVo">
 	UPDATE board
 	SET user_id=#{userId}, title=#{title}, plan=#{plan}, introduction=#{introduction}
 	WHERE id=#{id}

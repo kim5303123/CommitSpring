@@ -4,25 +4,25 @@
 <mapper namespace="com.commit.mappers.DegreeMapper">
 
 	<!-- RETRIEVE: GET -->
-	<select id="selectAllItems" resultType="boardVo">
+	<select id="selectAllItems" resultType="degreeVo">
 	SELECT id, userId, title, plan, introduction
 	FROM board;
 	</select>
 	
 	<!-- INSERT: POST -->
-	<insert id="insertItem" parameterType="boardVo">	
+	<insert id="insertItem" parameterType="degreeVo">	
 	INSERT INTO board (user_id,title, plan, introduction) 
 	VALUES(#{userId}, #{title}, #{plan}, #{introduction})	
 	</insert>
 	
 	<!-- RETRIEVE: GET -->
 	<select id="selectById" parameterType="int"
-		resultType="boardVo">
+		resultType="degreeVo">
 	SELECT * FROM board WHERE id=#{id}	
 	</select>
 	
 	<!-- UPDATE: PUT -->
-	<update id="updateItem" parameterType="boardVo">
+	<update id="updateItem" parameterType="degreeVo">
 	UPDATE board
 	SET user_id=#{userId}, title=#{title}, plan=#{plan}, introduction=#{introduction}
 	WHERE id=#{id}
