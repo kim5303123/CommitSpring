@@ -1,17 +1,10 @@
 package com.commit.controller;
 
-import java.lang.System.Logger;
-import java.net.URI;
 
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,11 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.commit.repository.vo.UserVo;
 import com.commit.service.UserService;
 
-import jakarta.validation.Valid;
 
 @Controller
-@RequestMapping("/api/users")
-public class UsersController {
+@RequestMapping("/api/user")
+public class UserController {
 	
 	@Autowired
 	private UserService userService;
@@ -76,12 +68,12 @@ public class UsersController {
 
     // POST: /users/login - 로그인 처리
     @PostMapping("/login")
-    public ResponseEntity<UserVo> login(@RequestBody UserVo user) {
+    public ResponseEntity<?> login(@RequestBody UserVo user) {
         UserVo loginUser = userService.login(user);
         if (loginUser != null) {
             return ResponseEntity.ok(loginUser);
         }
-        return ResponseEntity.status(401).build();
+        return ResponseEntity.status(401).body("로그인 실패");
     }
 
     // GET: /users/logout - 로그아웃
