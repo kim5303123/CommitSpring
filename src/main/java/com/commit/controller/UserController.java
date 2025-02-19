@@ -15,6 +15,7 @@ import com.commit.service.UserService;
 
 @Controller
 @RequestMapping("/api/user")
+
 public class UserController {
 	
 	@Autowired
