@@ -23,7 +23,7 @@ import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/api/users")
-public class UsersController {
+public class UserController {
 	
 	@Autowired
 	private UserService userService;
@@ -76,12 +76,12 @@ public class UsersController {
 
     // POST: /users/login - 로그인 처리
     @PostMapping("/login")
-    public ResponseEntity<UserVo> login(@RequestBody UserVo user) {
+    public ResponseEntity<?> login(@RequestBody UserVo user) {
         UserVo loginUser = userService.login(user);
         if (loginUser != null) {
             return ResponseEntity.ok(loginUser);
         }
-        return ResponseEntity.status(401).build();
+        return ResponseEntity.status(401).body("로그인 실패");
     }
 
     // GET: /users/logout - 로그아웃
