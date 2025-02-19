@@ -4,25 +4,25 @@
 <mapper namespace="com.commit.mappers.MypageMapper">
 
 	<!-- RETRIEVE: GET -->
-	<select id="selectAllItems" resultType="boardVo">
+	<select id="selectAllItems" resultType="mypageVo">
 	SELECT id, userId, title, plan, introduction
 	FROM board;
 	</select>
 	
 	<!-- INSERT: POST -->
-	<insert id="insertItem" parameterType="boardVo">	
+	<insert id="insertItem" parameterType="mypageVo">	
 	INSERT INTO board (user_id,title, plan, introduction) 
 	VALUES(#{userId}, #{title}, #{plan}, #{introduction})	
 	</insert>
 	
 	<!-- RETRIEVE: GET -->
 	<select id="selectById" parameterType="int"
-		resultType="boardVo">
+		resultType="mypageVo">
 	SELECT * FROM board WHERE id=#{id}	
 	</select>
 	
 	<!-- UPDATE: PUT -->
-	<update id="updateItem" parameterType="boardVo">
+	<update id="updateItem" parameterType="mypageVo">
 	UPDATE board
 	SET user_id=#{userId}, title=#{title}, plan=#{plan}, introduction=#{introduction}
 	WHERE id=#{id}
