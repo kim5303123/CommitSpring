@@ -26,6 +26,10 @@ public class FamilyService {
 		return familyMapper.familyInsert(family);
 	}
 	
+	//	가족 목록 기본값 추가
+	public int familyInsert2(FamilyVo family) {
+		return familyMapper.familyInsert2(family);
+	}
 	
 	
 //		아이템 수정

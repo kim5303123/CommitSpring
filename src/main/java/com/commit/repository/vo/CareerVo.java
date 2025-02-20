@@ -19,6 +19,6 @@ public class CareerVo {
 	String salary;
 	//	직업
 	String job;
-	 
+	//  사용자ID
 	Integer userId;
 }

@@ -3,7 +3,7 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.commit.mappers.DegreeMapper">
 
-	<!-- 학위정보 select -->
+	<!-- RETRIEVE: GET -->
 	<select id="degreeSelect" parameterType="int" resultType="DegreeVo">
 	SELECT
 		id,
@@ -13,12 +13,13 @@
 	    university,
 	    university_major as universityMajor,
 	    graduate_school as graduateSchool,
-	    graduate_major as graduateMajor
+	    graduate_major as graduateMajor,
+	    user_id as userId
 	FROM degree
 	WHERE user_id = #{id}
 	</select>
 	
-	<!-- 학위정보 insert -->
+	<!-- INSERT: POST -->
 	<insert id="degreeInsert" parameterType="DegreeVo" >
 	INSERT INTO degree (middle_school, high_school, high_major, university, 
 						university_major, graduate_school, graduate_major, user_id)
@@ -26,4 +27,11 @@
 			#{universityMajor}, #{graduateSchool}, #{graduateMajor}, #{userId});
 	</insert>
 	 
+	 
+	<!-- INSERT: POST -->
+	<insert id="degreeInsert2" parameterType="DegreeVo">
+	INSERT INTO degree (middle_school, high_school, high_major, university, 
+                    university_major, graduate_school, graduate_major, user_id)
+	VALUES ('', '', '', '', '', '', '', #{id});
+	</insert>
 </mapper>	

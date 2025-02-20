@@ -15,15 +15,26 @@ public class CareerService {
 	@Autowired
 	private CareerMapper careerMapper;
 	
-	// 직업 정보 불러오기
+	//	직업 정보 불러오기
 	public CareerVo careerSelect(int id) {
 		CareerVo careerVo = careerMapper.careerSelect(id);
 		return careerVo;
 	}
 	
-	// 직업 정보 추가
+	//	직업 정보 추가
 	public int careerInsert(CareerVo career) {
 		return careerMapper.careerInsert(career);
+	}
+	
+	//	직업 정보 기본값 추가
+	public int careerInsert2(CareerVo career) {
+		return careerMapper.careerInsert2(career);
+	}
+	
+	//	직업 정보 수정
+	public CareerVo careerUpdate(CareerVo career) {
+		careerMapper.careerUpdate(career);
+		return career;
 	}
 	
 }

@@ -3,7 +3,7 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.commit.mappers.ProfileMapper">
 
-	<!-- 신상정보 select -->
+	<!-- RETRIEVE: GET -->
 	<select id="profileSelect" parameterType="int" resultType="profileVo">
 	SELECT 
 		id,
@@ -22,10 +22,16 @@
 	WHERE user_id = #{userId}
 	</select>
 	 
-	<!-- 신상정보 insert -->
+	<!-- INSERT: POST -->
 	<insert id="profileInsert" parameterType="profileVo">
 	INSERT INTO profile (id, weight, height, mbti, hobby, photo, military, religion, wealth, marriage, disease, user_id) 
 	VALUES (#{id}, #{weight}, #{height}, #{mbti}, #{hobby}, #{photo}, #{military}, #{religion}, #{wealth}, #{marriage}, #{disease}, #{userId})
+	</insert>
+	
+	<!-- INSERT: POST -->
+	<insert id="profileInsert2" parameterType="profileVo">
+	INSERT INTO profile (weight, height, mbti, hobby, photo, military, religion, wealth, marriage, disease, user_id) 
+	VALUES ('', '', '', '', '', '', '', '', '', '', #{userId})
 	</insert>
 	
 </mapper>	

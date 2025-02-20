@@ -23,7 +23,7 @@ public class FamilyVo {
 	String child;
 	//	형제자매	
 	String sibling;
-	
+	//  사용자ID
 	Integer userId;
 	 
 }

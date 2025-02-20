@@ -16,16 +16,22 @@ public class ProfileService {
 	@Autowired
 	private ProfileMapper profileMapper;
 	
-	//	목록 불러오기
+	//	신상 정보 불러오기
 	public ProfileVo profileSelect(int id) {
 		ProfileVo profileVo = profileMapper.profileSelect(id);
 		return profileVo;
 	}
 	
-	//	새 아이템 추가
+	//	신상 정보 추가
 	public int profileInsert(ProfileVo profile) {
 		return profileMapper.profileInsert(profile);
 	}
+	
+	//	신상 정보 기본값 추가
+	public int profileInsert2(ProfileVo profile) {
+		return profileMapper.profileInsert2(profile);
+	}
+	
 	
 //	//	아이템 수정
 //	public ProfileVo updateItem(ProfileVo item) {
