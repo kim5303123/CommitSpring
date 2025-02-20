@@ -6,11 +6,18 @@ import com.commit.repository.vo.FamilyVo;
 
 
 public interface FamilyMapper {
+//	<select id="selectAllItems" resultType="shopItem">
+	List<FamilyVo> selectAllItems();
 	
-//	<select id="familySelect" parameterType="familyVo" resultType="familyVo">
-	FamilyVo familySelect(Integer id);
+//	<insert id="insertItem" parameterType="shopItem">
+	int insertItem(FamilyVo item);
 	
-//	<insert id="familyInsert" parameterType="familyVo">
-	int familyInsert(FamilyVo family);
-
+//	<select id="selectById" parameterType="int" resultType="shopItem">
+	FamilyVo selectById(Integer id);
+	
+//	<update id="updateItem" parameterType="shopItem">
+	int updateItem(FamilyVo item);
+	
+//	<delete id="deleteItem" parameterType="int">
+	int deleteItem(Integer id);
 }

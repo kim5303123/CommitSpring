@@ -6,18 +6,18 @@ import com.commit.repository.vo.ProfileVo;
 
 
 public interface ProfileMapper {
-//	<select id="profileSelect" parameterType="int" resultType="profileVo">
-	ProfileVo profileSelect(Integer id);
+//	<select id="selectAllItems" resultType="shopItem">
+	List<ProfileVo> selectAllItems();
 	
-//	<insert id="profileInsert" parameterType="profileVo">
-	int profileInsert(ProfileVo profile);
+//	<insert id="insertItem" parameterType="shopItem">
+	int insertItem(ProfileVo item);
 	
 //	<select id="selectById" parameterType="int" resultType="shopItem">
-//	ProfileVo selectById(Integer id);
+	ProfileVo selectById(Integer id);
 	
 //	<update id="updateItem" parameterType="shopItem">
-//	int updateItem(ProfileVo item);
+	int updateItem(ProfileVo item);
 	
 //	<delete id="deleteItem" parameterType="int">
-//	int deleteItem(Integer id);
+	int deleteItem(Integer id);
 }

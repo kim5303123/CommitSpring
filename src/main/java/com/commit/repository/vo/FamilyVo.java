@@ -23,7 +23,5 @@ public class FamilyVo {
 	String child;
 	//	형제자매	
 	String sibling;
-	
-	Integer userId;
 	 
 }
