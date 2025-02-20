@@ -5,14 +5,23 @@
 
 	<!-- 가족정보 select문 -->
 	<select id="familySelect" parameterType="MypageVo" resultType="MapageVo">
+	<!-- 가족정보 select -->
+	<select id="familySelect" parameterType="int" resultType="familyVo">
 	SELECT
-		f.mother,
-	    f.father,
-	    f.child, 
-		f.sibling
-	FROM user u
-	JOIN family f ON u.id = f.user_id
-	WHERE u.id = #{userId}
+		id,
+		mother,
+	    father,
+	    child, 
+		sibling,
+		user_id as userId
+	FROM family
+	WHERE user_id = #{userId}
 	</select>
 	 
+	 
+	 <!-- 가족정보 insert -->
+	 <insert id="familyInsert" parameterType="familyVo">
+	 INSERT INTO family (id, mother, father, child, sibling, user_id) 
+	 VALUES (#{id}, #{mother}, #{father}, #{child}, #{sibling}, #{userId})
+	 </insert>
 </mapper>	

@@ -5,20 +5,29 @@
 
 	<!-- 신상정보 select문 -->
 	<select id="profileSelect" parameterType="MypageVo" resultType="MapageVo">
+	<!-- 신상정보 select -->
+	<select id="profileSelect" parameterType="int" resultType="profileVo">
 	SELECT 
-		p.weight,
-		p.height,
-	    p.mbti, 
-	    p.hobby, 
-	    p.photo, 
-	    p.military, 
-	    p.religion, 
-	    p.wealth, 
-	    p.marriage, 
-	    p.disease
-	FROM user u
-	JOIN profile p ON u.id = p.user_id
-	WHERE u.id = #{userId}
+		id,
+		weight,
+		height,
+	    mbti, 
+	    hobby, 
+	    photo, 
+	    military, 
+	    religion, 
+	    wealth, 
+	    marriage, 
+	    disease,
+	    user_id as userId
+	FROM profile
+	WHERE user_id = #{userId}
 	</select>
 	 
+	<!-- 신상정보 insert -->
+	<insert id="profileInsert" parameterType="profileVo">
+	INSERT INTO profile (id, weight, height, mbti, hobby, photo, military, religion, wealth, marriage, disease, user_id) 
+	VALUES (#{id}, #{weight}, #{height}, #{mbti}, #{hobby}, #{photo}, #{military}, #{religion}, #{wealth}, #{marriage}, #{disease}, #{userId})
+	</insert>
+	
 </mapper>	
