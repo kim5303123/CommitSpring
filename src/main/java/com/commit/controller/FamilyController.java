@@ -23,13 +23,22 @@ public class FamilyController {
 	@Autowired
 	private FamilyService familyService;
 	
-//	GET : /api/board
-	@GetMapping
-	public ResponseEntity<List<FamilyVo>> getAllItems() {
-		List<FamilyVo> items = 
-				familyService.selectAllItems();
-		return ResponseEntity.ok(items);
+//	GET : /api/family
+	@GetMapping("/{no}")
+	public ResponseEntity<FamilyVo> getAllItems(@PathVariable("no") int id) {
+		FamilyVo familyVo = familyService.familySelect(id);
+		return ResponseEntity.ok(familyVo);
 	}
+	
+	
+//	POST : /api/family -> 새로운 항목 생성
+	@PostMapping
+	public ResponseEntity<FamilyVo> createFamily(@RequestBody FamilyVo family) {
+		int result = familyService.familyInsert(family);
+		return ResponseEntity.ok(family);	
+	}
+	
+	
 	
 	
 //	id로 검색
@@ -42,29 +51,24 @@ public class FamilyController {
 //	}
 	
 	
-//	POST : /api/board -> 새로운 항목 생성
-	@PostMapping
-	public ResponseEntity<FamilyVo> createItem(@RequestBody FamilyVo item) {
-		FamilyVo savedItem = familyService.insertItem(item);
-		return ResponseEntity.ok(savedItem);	
-	}
+
 	
 //	PUT : /api/board/{id} -> 기존 항목 수정
-	@PutMapping("/{id}")
-	public ResponseEntity<FamilyVo> updateItem(@RequestBody FamilyVo item,
-			@PathVariable("id") Integer id) {
-		item.setId(id);
-		FamilyVo updatedItem = familyService.updateItem(item);
-		return ResponseEntity.ok(updatedItem);
-	}
-	
+//	@PutMapping("/{id}")
+//	public ResponseEntity<FamilyVo> updateItem(@RequestBody FamilyVo item,
+//			@PathVariable("id") Integer id) {
+//		item.setId(id);
+//		FamilyVo updatedItem = familyService.updateItem(item);
+//		return ResponseEntity.ok(updatedItem);
+//	}
+//	
 //	DELETE : /api/board/{id} -> 기존 항목 삭제
-	@DeleteMapping("/{id}")
-	//	Body에 실어 보낼 내용이 없음 -> Void
-	public ResponseEntity<Void> 
-		deleteItem(@PathVariable("id") Integer id) {
-		familyService.deleteItem(id);
-		return ResponseEntity.ok().<Void>build();
-	}
+//	@DeleteMapping("/{id}")
+//	//	Body에 실어 보낼 내용이 없음 -> Void
+//	public ResponseEntity<Void> 
+//		deleteItem(@PathVariable("id") Integer id) {
+//		familyService.deleteItem(id);
+//		return ResponseEntity.ok().<Void>build();
+//	}
 	
 }

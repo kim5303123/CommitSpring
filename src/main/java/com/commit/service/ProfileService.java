@@ -1,5 +1,6 @@
 package com.commit.service;
 
+import java.net.Inet4Address;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,28 +17,24 @@ public class ProfileService {
 	private ProfileMapper profileMapper;
 	
 	//	목록 불러오기
-	public List<ProfileVo> selectAllItems() {
-		List<ProfileVo> items = 
-				profileMapper.selectAllItems();
-		return items;
+	public ProfileVo profileSelect(int id) {
+		ProfileVo profileVo = profileMapper.profileSelect(id);
+		return profileVo;
 	}
 	
 	//	새 아이템 추가
-	public ProfileVo insertItem(ProfileVo item) {
-		profileMapper.insertItem(item);
-		//	새로 생성된 item의 PK
-		Integer id = item.getId();
-		return profileMapper.selectById(id);
+	public int profileInsert(ProfileVo profile) {
+		return profileMapper.profileInsert(profile);
 	}
 	
-	//	아이템 수정
-	public ProfileVo updateItem(ProfileVo item) {
-		profileMapper.updateItem(item);
-		return item;
-	}
-	
-	//	아이템 삭제
-	public int deleteItem(Integer id) {
-		return profileMapper.deleteItem(id);
-	}	
+//	//	아이템 수정
+//	public ProfileVo updateItem(ProfileVo item) {
+//		profileMapper.updateItem(item);
+//		return item;
+//	}
+//	
+//	//	아이템 삭제
+//	public int deleteItem(Integer id) {
+//		return profileMapper.deleteItem(id);
+//	}	
 }
