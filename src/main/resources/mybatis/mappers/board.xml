@@ -5,7 +5,11 @@
 
 	<!-- RETRIEVE: GET -->
 	<select id="selectAllItems" resultType="boardVo">
-	SELECT id, userId, title, plan, introduction
+	SELECT id,
+		 user_id as userId,
+		 title, 
+		 plan, 
+		 introduction
 	FROM board;
 	</select>
 	
@@ -18,7 +22,8 @@
 	<!-- RETRIEVE: GET -->
 	<select id="selectById" parameterType="int"
 		resultType="boardVo">
-	SELECT * FROM board WHERE id=#{id}	
+	SELECT id, userId, title, plan, introduction 
+	FROM board WHERE id=#{id}	
 	</select>
 	
 	<!-- UPDATE: PUT -->

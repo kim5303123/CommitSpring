@@ -3,8 +3,6 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.commit.mappers.ProfileMapper">
 
-	<!-- 신상정보 select문 -->
-	<select id="profileSelect" parameterType="MypageVo" resultType="MapageVo">
 	<!-- 신상정보 select -->
 	<select id="profileSelect" parameterType="int" resultType="profileVo">
 	SELECT 

@@ -1,6 +1,7 @@
 package com.commit.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -33,13 +34,15 @@ public class ReviewController {
 	
 	
 //	id로 검색
-//	@GetMapping("/{id}")
-//	public ResponseEntity<TodoItem> getTodoById(
-//			@PathVariable("id") Long id) {
-//		Optional<TodoItem> todo = todoRepository.findById(id);
-//		return todo.map(ResponseEntity::ok)
-//				.orElseGet(() -> ResponseEntity.notFound().build());
-//	}
+	@GetMapping("/{id}")
+    public ResponseEntity<ReviewVo> getItemById(@PathVariable Integer id) {
+        ReviewVo item = reviewService.selectById(id);
+        if (item != null) {
+            return ResponseEntity.ok(item);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 	
 	
 //	POST : /api/board -> 새로운 항목 생성

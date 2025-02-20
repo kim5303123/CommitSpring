@@ -32,6 +32,26 @@ public class BoardController {
 	}
 	
 	
+	
+//	PUT : /api/board/{id} -> 기존 항목 수정
+	@PutMapping("/{id}")
+	public ResponseEntity<BoardVo> updateItem(@RequestBody BoardVo item,
+			@PathVariable("id") Integer id) {
+		item.setId(id);
+		BoardVo updatedItem = boardService.updateItem(item);
+		return ResponseEntity.ok(updatedItem);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 //	id로 검색
 //	@GetMapping("/{id}")
 //	public ResponseEntity<TodoItem> getTodoById(
@@ -47,15 +67,6 @@ public class BoardController {
 	public ResponseEntity<BoardVo> createItem(@RequestBody BoardVo item) {
 		BoardVo savedItem = boardService.insertItem(item);
 		return ResponseEntity.ok(savedItem);	
-	}
-	
-//	PUT : /api/board/{id} -> 기존 항목 수정
-	@PutMapping("/{id}")
-	public ResponseEntity<BoardVo> updateItem(@RequestBody BoardVo item,
-			@PathVariable("id") Integer id) {
-		item.setId(id);
-		BoardVo updatedItem = boardService.updateItem(item);
-		return ResponseEntity.ok(updatedItem);
 	}
 	
 //	DELETE : /api/board/{id} -> 기존 항목 삭제
