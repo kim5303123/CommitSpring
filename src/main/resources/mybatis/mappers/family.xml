@@ -3,8 +3,6 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.commit.mappers.FamilyMapper">
 
-	<!-- 가족정보 select문 -->
-	<select id="familySelect" parameterType="MypageVo" resultType="MapageVo">
 	<!-- 가족정보 select -->
 	<select id="familySelect" parameterType="int" resultType="familyVo">
 	SELECT

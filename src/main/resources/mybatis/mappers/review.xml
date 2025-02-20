@@ -5,20 +5,44 @@
 
 	<!-- RETRIEVE: GET -->
 	<select id="selectAllItems" resultType="reviewVo">
-	SELECT id, userId, title, plan, introduction
-	FROM board;
+	select id
+		,mypage_id as mypageId
+		,title
+		,contents
+		,reg_date as regDate
+		,rating
+	from review
 	</select>
 	
 	<!-- INSERT: POST -->
-	<insert id="insertItem" parameterType="reviewVo">	
-	INSERT INTO board (user_id,title, plan, introduction) 
-	VALUES(#{userId}, #{title}, #{plan}, #{introduction})	
-	</insert>
+	<insert id="insertItem" parameterType="map">
+	INSERT INTO review (id, mypage_id, title, contents, reg_date, rating)
+	SELECT 
+	    #{id},
+	    u.id,
+	    #{title},
+	    CONCAT('사용자 ', u.name, '(', p.mbti, ')의 리뷰: ', #{contents}),
+	    #{regDate},
+	    #{rating}
+	FROM 
+	    user u
+	JOIN 
+	    profile p ON u.id = p.user_id
+	WHERE 
+	    u.id = #{userId} 
+</insert>
 	
 	<!-- RETRIEVE: GET -->
 	<select id="selectById" parameterType="int"
 		resultType="reviewVo">
-	SELECT * FROM board WHERE id=#{id}	
+	select id
+		,mypage_id as mypageId
+		,title
+		,contents
+		,reg_date as regDate
+		,rating
+	from review
+	where id=#{id}	
 	</select>
 	
 	<!-- UPDATE: PUT -->
@@ -32,5 +56,8 @@
 	<delete id="deleteItem" parameterType="int">
 	DELETE FROM board WHERE id=#{id}	
 	</delete> 
+	 
+	 
+	 
 	 
 </mapper>	
