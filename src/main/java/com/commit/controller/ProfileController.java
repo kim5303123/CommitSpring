@@ -23,19 +23,36 @@ public class ProfileController {
 	@Autowired
 	private ProfileService profileService;
 	
-//	GET : /api/profile
+	//	GET : /api/profile
 	@GetMapping("/{no}")
 	public ResponseEntity<ProfileVo> getAllItems(@PathVariable("no") int id) {
 		ProfileVo profileVo = profileService.profileSelect(id);
 		return ResponseEntity.ok(profileVo);
 	}
 
-//	POST : /api/profile -> 새로운 항목 생성
-	@PostMapping
-	public ResponseEntity<ProfileVo> createItem(@RequestBody ProfileVo profile) {
+	
+	//	POST : /api/profile -> 새로운 항목 생성
+	@PostMapping("/insert")
+	public ResponseEntity<ProfileVo> createProfile(@RequestBody ProfileVo profile) {
 		int result = profileService.profileInsert(profile);
 		return ResponseEntity.ok(profile);	
 	}
+	
+	//	POST : /api/profile -> 기본값 생성
+	@PostMapping("/insert2")
+	public ResponseEntity<ProfileVo> createProfile2(@RequestBody ProfileVo profile) {
+		int result = profileService.profileInsert2(profile);
+		return ResponseEntity.ok(profile);	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.commit.repository.vo.CareerVo;
+import com.commit.repository.vo.DegreeVo;
 import com.commit.service.CareerService;
 
 @RestController
@@ -31,27 +32,43 @@ public class CareerController {
 	}
 	
 	
-	//	POST : /api/career -> 새로운 항목 생성
-	@PostMapping
+	//	POST : /api/career/insert -> 새로운 항목 생성
+	@PostMapping("/insert")
 	public ResponseEntity<CareerVo> createCareer(@RequestBody CareerVo career) {
 		int result = careerService.careerInsert(career);
 		return ResponseEntity.ok(career);	
 	}
 	
+	//	POST : /api/career/insert2 -> 기본값 생성
+	@PostMapping("/insert2")
+	public ResponseEntity<CareerVo> createCareer2(@RequestBody CareerVo career) {
+		int result = careerService.careerInsert2(career);
+		return ResponseEntity.ok(career);	
+	}
 	
 	
-	
-	
-	
-	
-//	PUT : /api/board/{id} -> 기존 항목 수정
+	//	PUT : /api/career/{id} -> 기존 항목 수정
 //	@PutMapping("/{id}")
-//	public ResponseEntity<CareerVo> updateItem(@RequestBody CareerVo item,
-//			@PathVariable("id") Integer id) {
+//	public ResponseEntity<CareerVo> updateItem(@RequestBody CareerVo item, @PathVariable("id") Integer id) {
 //		item.setId(id);
-//		CareerVo updatedItem = careerService.updateItem(item);
-//		return ResponseEntity.ok(updatedItem);
-//	}
+//		CareerVo careerUpdate = careerService.careerUpdate(item);
+//		return ResponseEntity.ok(careerUpdate);
+		
+
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+
 	
 //	DELETE : /api/board/{id} -> 기존 항목 삭제
 //	@DeleteMapping("/{id}")

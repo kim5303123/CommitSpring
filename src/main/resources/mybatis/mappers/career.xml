@@ -3,7 +3,7 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.commit.mappers.CareerMapper">
 
-	<!-- 직장정보 select -->
+	<!-- RETRIEVE: GET -->
 	<select id="careerSelect" parameterType="int" resultType="CareerVo">
 	SELECT
 		id,
@@ -14,11 +14,23 @@
 	WHERE user_id = #{userId}
 	</select>
 	 
-	 
-	 <!-- 직장정보 insert -->
-	 <insert id="careerInsert" parameterType="CareerVo">
-	 INSERT INTO career (id, salary, job, user_id) 
-	 VALUES (#{id}, #{salary}, #{job}, #{userId});
-	 </insert>
+	<!-- INSERT: POST -->
+ 	<insert id="careerInsert" parameterType="CareerVo">
+	INSERT INTO career (id, salary, job, user_id) 
+	VALUES (#{id}, #{salary}, #{job}, #{userId})
+	</insert>
+	
+	<!-- INSERT: POST -->
+ 	<insert id="careerInsert2" parameterType="CareerVo">
+	INSERT INTO career (salary, job, user_id) 
+	VALUES ('', '', #{userId})
+	</insert>
+	
+	<!-- UPDATE: PUT -->
+	<update id="careerUpdate" parameterType="CareerVo">
+	UPDATE career  
+	SET salary = #{salary}, job = #{job}
+	WHERE user_id = #{userId}
+	</update>
 	 
 </mapper>	

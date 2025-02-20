@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.commit.repository.vo.CareerVo;
 import com.commit.repository.vo.FamilyVo;
 import com.commit.service.FamilyService;
 
@@ -23,7 +24,7 @@ public class FamilyController {
 	@Autowired
 	private FamilyService familyService;
 	
-//	GET : /api/family
+	//	GET : /api/family
 	@GetMapping("/{no}")
 	public ResponseEntity<FamilyVo> getAllItems(@PathVariable("no") int id) {
 		FamilyVo familyVo = familyService.familySelect(id);
@@ -31,12 +32,23 @@ public class FamilyController {
 	}
 	
 	
-//	POST : /api/family -> 새로운 항목 생성
-	@PostMapping
+	//	POST : /api/family -> 새로운 항목 생성
+	@PostMapping("/insert")
 	public ResponseEntity<FamilyVo> createFamily(@RequestBody FamilyVo family) {
 		int result = familyService.familyInsert(family);
 		return ResponseEntity.ok(family);	
 	}
+	
+	//	POST : /api/family/insert2 -> 기본값 생성
+	@PostMapping("/insert2")
+	public ResponseEntity<FamilyVo> createFamily2(@RequestBody FamilyVo family) {
+		int result = familyService.familyInsert2(family);
+		return ResponseEntity.ok(family);	
+	}
+	
+	
+	
+	
 	
 	
 	

@@ -12,5 +12,7 @@ public interface FamilyMapper {
 	
 //	<insert id="familyInsert" parameterType="familyVo">
 	int familyInsert(FamilyVo family);
-
+	
+//	<insert id="familyInsert2" parameterType="familyVo">
+	int familyInsert2(FamilyVo family);
 }

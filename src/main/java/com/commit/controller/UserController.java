@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.commit.repository.vo.UserVo;
 import com.commit.service.UserService;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
+
 
 @Controller
 @RequestMapping("/api/user")
@@ -26,22 +29,15 @@ public class UserController {
     public ResponseEntity<String> joinStart() {
         return ResponseEntity.ok("약관 동의 페이지");
     }
-
+    
     // POST: /users/join/agreement - 약관 동의 처리
     @PostMapping("/join/agreement")
     public ResponseEntity<UserVo> joinAgreement(@RequestBody UserVo userVo) {
     	UserVo savedUserVo = userService.insertUser(userVo);
-//        if ("동의".equals(agreementStatus) ) {
-//        	return ResponseEntity.status(HttpStatus.FOUND)
-//                    .location(URI.create("/api/users/join/info")) // 가입 정보 입력 폼으로 리다이렉트
-//                    .build();
-//        } else {
-//        	return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-//        			.body("약관 동의 필수");
-//        }
+
     	return ResponseEntity.ok(savedUserVo);
     }
-
+    
     // GET: /users/join/info - 가입정보 입력 폼
     @GetMapping("/join/info")
     public ResponseEntity<String> joinInfoForm() {
@@ -69,9 +65,15 @@ public class UserController {
 
     // POST: /users/login - 로그인 처리
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody UserVo user) {
+    public ResponseEntity<?> login(@RequestBody UserVo user, HttpServletRequest request) {
+    	HttpSession session = request.getSession();	//	기존 세션 가져오기
+    	session.invalidate();	//	기존 세션 제거 (중복 로그인 방지)
+    	
         UserVo loginUser = userService.login(user);
+        
         if (loginUser != null) {
+        	session = request.getSession(true);	//	새로운 세션 생성
+        	session.setAttribute("loginUser", loginUser);	// 로그인한 사용자 정보 저장
             return ResponseEntity.ok(loginUser);
         }
         return ResponseEntity.status(401).body("로그인 실패");
@@ -79,11 +81,14 @@ public class UserController {
 
     // GET: /users/logout - 로그아웃
     @GetMapping("/logout")
-    public ResponseEntity<String> logout() {
+    public ResponseEntity<?> logout(HttpServletRequest request) {
+    	HttpSession session = request.getSession(false);
+    	
+    	if (session != null) {
+    		session.invalidate();	// 세션 삭제 (로그아웃 처리)
+    	}
+    	
         return ResponseEntity.ok("로그아웃 성공");
-	
-	//
-	
 	}
 	
 }

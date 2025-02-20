@@ -35,6 +35,6 @@ public class ProfileVo {
 	String marriage;
 	//	질병
 	String disease;
-	
+	//  사용자ID
 	Integer userId;
 }
