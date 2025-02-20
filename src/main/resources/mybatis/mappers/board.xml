@@ -4,6 +4,7 @@
 <mapper namespace="com.commit.mappers.BoardMapper">
 
 	<!-- RETRIEVE: GET -->
+	<!-- 조회 -->
 	<select id="selectAllItems" resultType="boardVo">
 	SELECT id,
 		 user_id as userId,
@@ -27,6 +28,7 @@
 	</select>
 	
 	<!-- UPDATE: PUT -->
+	<!-- 수정 -->
 	<update id="updateItem" parameterType="boardVo">
 	UPDATE board
 	SET user_id=#{userId}, title=#{title}, plan=#{plan}, introduction=#{introduction}
@@ -38,4 +40,4 @@
 	DELETE FROM board WHERE id=#{id}	
 	</delete> 
 	 
-</mapper>	
+</mapper>

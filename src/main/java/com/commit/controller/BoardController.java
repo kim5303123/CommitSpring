@@ -45,8 +45,8 @@ public class BoardController {
 	
 	
 	
-	
-	
+	/////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////
 	
 	
 	
@@ -63,19 +63,19 @@ public class BoardController {
 	
 	
 //	POST : /api/board -> 새로운 항목 생성
-	@PostMapping
-	public ResponseEntity<BoardVo> createItem(@RequestBody BoardVo item) {
-		BoardVo savedItem = boardService.insertItem(item);
-		return ResponseEntity.ok(savedItem);	
-	}
+//	@PostMapping
+//	public ResponseEntity<BoardVo> createItem(@RequestBody BoardVo item) {
+//		BoardVo savedItem = boardService.insertItem(item);
+//		return ResponseEntity.ok(savedItem);	
+//	}
 	
 //	DELETE : /api/board/{id} -> 기존 항목 삭제
-	@DeleteMapping("/{id}")
-	//	Body에 실어 보낼 내용이 없음 -> Void
-	public ResponseEntity<Void> 
-		deleteItem(@PathVariable("id") Integer id) {
-		boardService.deleteItem(id);
-		return ResponseEntity.ok().<Void>build();
-	}
+//	@DeleteMapping("/{id}")
+//	//	Body에 실어 보낼 내용이 없음 -> Void
+//	public ResponseEntity<Void> 
+//		deleteItem(@PathVariable("id") Integer id) {
+//		boardService.deleteItem(id);
+//		return ResponseEntity.ok().<Void>build();
+//	}
 	
 }

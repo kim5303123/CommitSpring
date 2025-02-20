@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.commit.repository.vo.ReviewVo;
@@ -24,7 +25,7 @@ public class ReviewController {
 	@Autowired
 	private ReviewService reviewService;
 	
-//	GET : /api/board
+//	GET : /api/review
 	@GetMapping
 	public ResponseEntity<List<ReviewVo>> getAllItems() {
 		List<ReviewVo> items = 
@@ -45,12 +46,36 @@ public class ReviewController {
     }
 	
 	
-//	POST : /api/board -> 새로운 항목 생성
-	@PostMapping
-	public ResponseEntity<ReviewVo> createItem(@RequestBody ReviewVo item) {
-		ReviewVo savedItem = reviewService.insertItem(item);
-		return ResponseEntity.ok(savedItem);	
-	}
+//	POST : /api/review -> 새로운 항목 생성
+//	@PostMapping
+//	public ResponseEntity<ReviewVo> createItem(@RequestBody ReviewVo item) {
+//		ReviewVo savedItem = reviewService.insertItem(item);
+//		return ResponseEntity.ok(savedItem);	
+//	}
+	
+	
+	
+	// 테스트 추가
+	 @PostMapping
+	    public ResponseEntity<ReviewVo> createItem(@RequestBody ReviewVo item) {
+	        ReviewVo savedItem = reviewService.insertItem(item);
+	        return ResponseEntity.ok(savedItem);    
+	    }
+	
+	
+	
+	
+	
+	/////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////
+	
+	
+	
+	
+	
+	
+	
+	
 	
 //	PUT : /api/board/{id} -> 기존 항목 수정
 	@PutMapping("/{id}")

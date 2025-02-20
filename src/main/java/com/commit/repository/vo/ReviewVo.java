@@ -14,16 +14,20 @@ import lombok.ToString;
 public class ReviewVo {
 
 	//	ID
-	Integer id;
+	private Integer id;
 	//	마이페이지 ID
-	Integer mypage_id;
+	private Integer mypageId;
 	//	제목
-	String title;
+	private String title;
 	//	내용
-	String contents;
+	private String contents;
 	//	날짜
-	String regDate;
+	private String regDate;
 	//	별점
-	String rating;
-	 
+	private String rating;
+	
+
+	//
+    // 추가 필드
+    Integer userId;	 
 }

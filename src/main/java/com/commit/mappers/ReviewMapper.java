@@ -9,14 +9,22 @@ import com.commit.repository.vo.ReviewVo;
 
 
 public interface ReviewMapper {
-//	<select id="selectAllItems" resultType="shopItem">
+//	<select id="selectAllItems" resultType="reviewVo">
 	List<ReviewVo> selectAllItems();
 	
-//	<insert id="insertItem" parameterType="shopItem">
+//	<insert id="insertItem" parameterType="map">
 	int insertItem(ReviewVo item);
 	
-//	<select id="selectById" parameterType="int" resultType="shopItem">
+//	<select id="selectById" parameterType="int" resultType="reviewVo">
 	ReviewVo selectById(Integer id);
+	
+//	<insert id="insertItemWithUserInfo" parameterType="map">
+	int insertItemWithUserInfo(ReviewVo item);
+
+	
+	/////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////
+	
 	
 //	<update id="updateItem" parameterType="shopItem">
 	int updateItem(ReviewVo item);

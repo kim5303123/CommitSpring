@@ -14,27 +14,28 @@ import lombok.ToString;
 public class ProfileVo {
 	
 	//	ID
-	Integer id;
+	private Integer id;
+	// 유저 ID
+	private Integer userId;
 	//	몸무게
-	String weight;
+	private String weight;
 	//	키	
-	String height;
+	private String height;
 	//	성향
-	String mbti;
+	private String mbti;
 	//	취미
-	String hobby;
+	private String hobby;
 	//	사진
-	String photo;
+	private String photo;
 	//	군복무여부
-	String military;
+	private String military;
 	//	종교
-	String religion;
+	private String religion;
 	//	재산
-	String wealth;
+	private String wealth;
 	//	결혼여부
-	String marriage;
+	private String marriage;
 	//	질병
-	String disease;
-	//  사용자ID
-	Integer userId;
+	private String disease;
+	
 }

@@ -14,5 +14,5 @@ public interface DegreeMapper {
 	int degreeInsert(DegreeVo degree);
 	
 //	<insert id="degreeInsert2" parameterType="DegreeVo">
-	int degreeInsert2(int id);
+	int degreeInsert2(DegreeVo degree);
 }

@@ -25,13 +25,33 @@ public class ReviewService {
 		return items;
 	}
 	
-	//	새 아이템 추가
-	public ReviewVo insertItem(ReviewVo item) {
-		reviewMapper.insertItem(item);
-		//	새로 생성된 item의 PK
-		Integer id = item.getId();
+	// 단건 조회
+	public ReviewVo selectById(Integer id) {
 		return reviewMapper.selectById(id);
 	}
+	
+	//	새 아이템 추가
+//	public ReviewVo insertItem(ReviewVo item) {
+//		reviewMapper.insertItem(item);
+//		//	새로 생성된 item의 PK
+//		Integer id = item.getId();
+//		return reviewMapper.selectById(id);
+//	}
+	
+
+	// 테스트 추가
+	public ReviewVo insertItem(ReviewVo item) {
+        reviewMapper.insertItemWithUserInfo(item);
+        return item; // id가 자동으로 설정됩니다.
+    }
+	
+	
+	
+	
+	/////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////
+	
+	
 	
 	//	아이템 수정
 	public ReviewVo updateItem(ReviewVo item) {
@@ -44,9 +64,5 @@ public class ReviewService {
 		return reviewMapper.deleteItem(id);
 	}
 	
-    // 단건 조회
-    public ReviewVo selectById(Integer id) {
-        return reviewMapper.selectById(id);
-    }
 	
 }

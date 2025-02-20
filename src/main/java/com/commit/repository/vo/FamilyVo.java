@@ -14,16 +14,16 @@ import lombok.ToString;
 public class FamilyVo {
 
 	//	ID
-	Integer id;
+	private Integer id;
 	//	어머니	
-	String mother;
+	private String mother;
 	//	아버지	
-	String father;
+	private String father;
 	//	자녀	
-	String child;
+	private String child;
 	//	형제자매	
-	String sibling;
-	//  사용자ID
-	Integer userId;
+	private String sibling;
+	
+	private Integer userId;
 	 
 }
