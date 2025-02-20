@@ -14,11 +14,11 @@ import lombok.ToString;
 public class CareerVo {
 
 	//	id
-	Integer id;
+	private Integer id;
 	//	연봉
-	String salary;
+	private String salary;
 	//	직업
-	String job;
-	//  사용자ID
-	Integer userId;
+	private String job;
+	 
+	private Integer userId;
 }

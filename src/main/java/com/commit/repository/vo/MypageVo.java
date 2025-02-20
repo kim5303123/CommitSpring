@@ -14,9 +14,9 @@ import lombok.ToString;
 public class MypageVo {
 
 	//	id
-	Integer id;
+	private Integer id;
 	//	포인트
-	String point;
+	private String point;
 	
 	 
 	

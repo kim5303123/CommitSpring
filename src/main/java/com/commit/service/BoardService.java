@@ -22,6 +22,20 @@ public class BoardService {
 		return items;
 	}
 	
+	//	수정
+	public BoardVo updateItem(BoardVo item) {
+		boardMapper.updateItem(item);
+		return item;
+	}
+	
+	
+	
+	/////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////
+	
+	
+	
+	
 	//	새 아이템 추가
 	public BoardVo insertItem(BoardVo item) {
 		boardMapper.insertItem(item);
@@ -30,11 +44,6 @@ public class BoardService {
 		return boardMapper.selectById(id);
 	}
 	
-	//	아이템 수정
-	public BoardVo updateItem(BoardVo item) {
-		boardMapper.updateItem(item);
-		return item;
-	}
 	
 	//	아이템 삭제
 	public int deleteItem(Integer id) {
