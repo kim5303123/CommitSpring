@@ -2,6 +2,8 @@ package com.commit.mappers;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.commit.repository.vo.ProfileVo;
 
 
@@ -13,8 +15,8 @@ public interface ProfileMapper {
 	int profileInsert(ProfileVo profile);
 	
 //	<insert id="profileInser2t" parameterType="profileVo">
-	int profileInsert2(ProfileVo profile);
+//	int profileInsertNull(@Param("userId") int userId);
 	
-//	<update id="updateItem" parameterType="shopItem">
-//	int updateItem(ProfileVo item);
+//	<update id="profileUpdate" parameterType="profileVo">
+	int profileUpdate(ProfileVo profile);
 }

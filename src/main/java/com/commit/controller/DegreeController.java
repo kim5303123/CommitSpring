@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.commit.repository.vo.CareerVo;
 import com.commit.repository.vo.DegreeVo;
 import com.commit.service.DegreeService;
 
@@ -36,10 +37,27 @@ public class DegreeController {
 	}
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	//	PUT : /api/degree/modify/{id} -> 기존 항목 수정
+//	@PostMapping("/modify/{id}")
+//	public ResponseEntity<DegreeVo> updateDegree(@RequestBody DegreeVo degree,
+//												@PathVariable("id") Integer id) {
+//		degree.setId(id);
+//		DegreeVo degreeUpdate = degreeService.degreeUpdate(degree);
+//		return ResponseEntity.ok(degreeUpdate);
+//	}
+	
 	//	POST : /api/degree/insert2 -> 기본값 생성
-	@PostMapping("/insert2")
-	public ResponseEntity<DegreeVo> createDegree2(@RequestBody DegreeVo degree) {
-		int result = degreeService.degreeInsert2(degree);
-		return ResponseEntity.ok(degree);
-	}
+//	@PostMapping("/insert2")
+//	public ResponseEntity<DegreeVo> createDegree2(@RequestBody DegreeVo degree) {
+//		int result = degreeService.degreeInsert2(degree);
+//		return ResponseEntity.ok(degree);
+//	}
 }

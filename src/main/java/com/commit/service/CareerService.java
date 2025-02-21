@@ -27,9 +27,9 @@ public class CareerService {
 	}
 	
 	//	직업 정보 기본값 추가
-	public int careerInsert2(CareerVo career) {
-		return careerMapper.careerInsert2(career);
-	}
+//	public int careerInsertNull(int userId) {
+//		return careerMapper.careerInsertNull(userId);
+//	}
 	
 	//	직업 정보 수정
 	public CareerVo careerUpdate(CareerVo career) {

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.commit.repository.vo.CareerVo;
 import com.commit.repository.vo.ProfileVo;
 import com.commit.service.ProfileService;
 
@@ -38,42 +39,31 @@ public class ProfileController {
 		return ResponseEntity.ok(profile);	
 	}
 	
-	//	POST : /api/profile -> 기본값 생성
-	@PostMapping("/insert2")
-	public ResponseEntity<ProfileVo> createProfile2(@RequestBody ProfileVo profile) {
-		int result = profileService.profileInsert2(profile);
-		return ResponseEntity.ok(profile);	
+
+	//	PUT : /api/profile/modify/{id} -> 기존 항목 수정
+	@PutMapping("/modify/{id}")
+	public ResponseEntity<ProfileVo> updateProfile(@RequestBody ProfileVo profile, 
+												@PathVariable("id") Integer id) {
+		profile.setId(id);
+		ProfileVo profileUpdate = profileService.profileUpdate(profile);
+		return ResponseEntity.ok(profileUpdate);
 	}
 	
+
 	
 	
 	
 	
 	
-	
-	
-	
-	
-	
-	
-//	id로 검색
-//	@GetMapping("/{id}")
-//	public ResponseEntity<TodoItem> getTodoById(
-//			@PathVariable("id") Long id) {
-//		Optional<TodoItem> todo = todoRepository.findById(id);
-//		return todo.map(ResponseEntity::ok)
-//				.orElseGet(() -> ResponseEntity.notFound().build());
+	//	POST : /api/profile -> 기본값 생성
+//	@PostMapping("/insert2")
+//	public ResponseEntity<ProfileVo> createProfile2(@RequestBody ProfileVo profile) {
+//		int result = profileService.profileInsert2(profile);
+//		return ResponseEntity.ok(profile);	
 //	}
 	
 	
-//	PUT : /api/board/{id} -> 기존 항목 수정
-//	@PutMapping("/{id}")
-//	public ResponseEntity<ProfileVo> updateItem(@RequestBody ProfileVo item,
-//			@PathVariable("id") Integer id) {
-//		item.setId(id);
-//		ProfileVo updatedItem = profileService.updateItem(item);
-//		return ResponseEntity.ok(updatedItem);
-//	}
+	
 //	
 //	DELETE : /api/board/{id} -> 기존 항목 삭제
 //	@DeleteMapping("/{id}")

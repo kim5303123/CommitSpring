@@ -30,7 +30,7 @@ public class UserController {
         return ResponseEntity.ok("약관 동의 페이지");
     }
     
-    // POST: /users/join/agreement - 약관 동의 처리
+    // POST: /users/join/agreement - 약관 동의 처리(회원가입)
     @PostMapping("/join/agreement")
     public ResponseEntity<UserVo> joinAgreement(@RequestBody UserVo userVo) {
     	UserVo savedUserVo = userService.insertUser(userVo);

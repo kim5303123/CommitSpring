@@ -39,11 +39,14 @@ public class FamilyController {
 		return ResponseEntity.ok(family);	
 	}
 	
-	//	POST : /api/family/insert2 -> 기본값 생성
-	@PostMapping("/insert2")
-	public ResponseEntity<FamilyVo> createFamily2(@RequestBody FamilyVo family) {
-		int result = familyService.familyInsert2(family);
-		return ResponseEntity.ok(family);	
+	
+	//	PUT : /api/family/modify/{id} -> 기존 항목 수정
+	@PutMapping("/modify/{id}")
+	public ResponseEntity<FamilyVo> updateFamily(@RequestBody FamilyVo family, 
+												@PathVariable("id") Integer id) {
+		family.setId(id);
+		FamilyVo familyUpdate = familyService.familyUpdate(family);
+		return ResponseEntity.ok(familyUpdate);
 	}
 	
 	
@@ -52,27 +55,14 @@ public class FamilyController {
 	
 	
 	
-	
-//	id로 검색
-//	@GetMapping("/{id}")
-//	public ResponseEntity<TodoItem> getTodoById(
-//			@PathVariable("id") Long id) {
-//		Optional<TodoItem> todo = todoRepository.findById(id);
-//		return todo.map(ResponseEntity::ok)
-//				.orElseGet(() -> ResponseEntity.notFound().build());
+	//	POST : /api/family/insert2 -> 기본값 생성
+//	@PostMapping("/insert2")
+//	public ResponseEntity<FamilyVo> createFamily2(@RequestBody FamilyVo family) {
+//		int result = familyService.familyInsert2(family);
+//		return ResponseEntity.ok(family);	
 //	}
 	
 	
-
-	
-//	PUT : /api/board/{id} -> 기존 항목 수정
-//	@PutMapping("/{id}")
-//	public ResponseEntity<FamilyVo> updateItem(@RequestBody FamilyVo item,
-//			@PathVariable("id") Integer id) {
-//		item.setId(id);
-//		FamilyVo updatedItem = familyService.updateItem(item);
-//		return ResponseEntity.ok(updatedItem);
-//	}
 //	
 //	DELETE : /api/board/{id} -> 기존 항목 삭제
 //	@DeleteMapping("/{id}")

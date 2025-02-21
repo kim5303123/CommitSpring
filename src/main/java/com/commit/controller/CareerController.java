@@ -24,7 +24,7 @@ public class CareerController {
 	@Autowired
 	private CareerService careerService;
 	
-	//	GET : /api/career
+	//	GET : /api/career/{id}
 	@GetMapping("/{no}")
 	public ResponseEntity<CareerVo> getAllItems(@PathVariable("no") int id) {
 		CareerVo career = careerService.careerSelect(id);
@@ -39,36 +39,29 @@ public class CareerController {
 		return ResponseEntity.ok(career);	
 	}
 	
-	//	POST : /api/career/insert2 -> 기본값 생성
-	@PostMapping("/insert2")
-	public ResponseEntity<CareerVo> createCareer2(@RequestBody CareerVo career) {
-		int result = careerService.careerInsert2(career);
-		return ResponseEntity.ok(career);	
+
+	//	PUT : /api/career/modify/{id} -> 기존 항목 수정
+	@PutMapping("/modify/{id}")
+	public ResponseEntity<CareerVo> updateCareer(@RequestBody CareerVo career, 
+												@PathVariable("id") Integer id) {
+		career.setId(id);
+		CareerVo careerUpdate = careerService.careerUpdate(career);
+		return ResponseEntity.ok(careerUpdate);
 	}
-	
-	
-	//	PUT : /api/career/{id} -> 기존 항목 수정
-//	@PutMapping("/{id}")
-//	public ResponseEntity<CareerVo> updateItem(@RequestBody CareerVo item, @PathVariable("id") Integer id) {
-//		item.setId(id);
-//		CareerVo careerUpdate = careerService.careerUpdate(item);
-//		return ResponseEntity.ok(careerUpdate);
-		
 
 	
 	
 	
 	
 	
-
+	//	POST : /api/career/insert2 -> 기본값 생성
+//	@GetMapping("/insert2")
+//	public ResponseEntity<Void> createCareer2() {
+//		int userId = 1;
+//		int result = careerService.careerInsertNull(1);
+//		return ResponseEntity.ok().<Void>build();
+//	}
 	
-	
-	
-	
-	
-	
-	
-
 	
 //	DELETE : /api/board/{id} -> 기존 항목 삭제
 //	@DeleteMapping("/{id}")
