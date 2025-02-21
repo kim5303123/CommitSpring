@@ -1,6 +1,5 @@
 package com.commit.service;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,15 +25,23 @@ public class CareerService {
 		return careerMapper.careerInsert(career);
 	}
 	
-	//	직업 정보 기본값 추가
-//	public int careerInsertNull(int userId) {
-//		return careerMapper.careerInsertNull(userId);
-//	}
-	
 	//	직업 정보 수정
 	public CareerVo careerUpdate(CareerVo career) {
 		careerMapper.careerUpdate(career);
 		return career;
+
 	}
+	
+	
+	/////////////////////////////////////////////////////////////
+	///// 아래 소스는 삭제 예정
+	////////////////////////////////////////////////////////////
+	
+	
+	
+	//	직업 정보 기본값 추가
+//	public int careerInsertNull(int userId) {
+//		return careerMapper.careerInsertNull(userId);
+//	}
 	
 }

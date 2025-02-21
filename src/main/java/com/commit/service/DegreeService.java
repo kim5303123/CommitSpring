@@ -25,14 +25,19 @@ public class DegreeService {
 		return degreeMapper.degreeInsert(degree);
 	}
 	
-	// 	학위 정보 기본값 추가
-//	public int degreeInsert2(DegreeVo degree) {	
-//		return degreeMapper.degreeInsert2(degree);
-//	}
 	
 	// 	학위 정보 수정
 	public DegreeVo degreeUpdate(DegreeVo degree) {	
 		degreeMapper.degreeUpdate(degree);
 		return degree;
 	}
+	
+	/////////////////////////////////////////////////////////////
+	///// 아래 소스는 삭제 예정
+	////////////////////////////////////////////////////////////
+	
+	// 	학위 정보 기본값 추가
+//	public int degreeInsert2(DegreeVo degree) {	
+//		return degreeMapper.degreeInsert2(degree);
+//	}
 }
