@@ -13,5 +13,25 @@
 	<select id="login" parameterType="UserVo" resultType="UserVo">
 	SELECT * FROM user WHERE email=#{email} AND password=#{password}
 	</select>
-
+	
+	<!-- UPDATE: PUT -->
+	<update id="updateUser" parameterType="UserVo">
+	UPDATE user
+	SET 
+	    name = #{name},
+	    email = #{email},
+	    password = #{password},
+	    gender = #{gender},
+	    birth = #{birth},
+	    address = #{address},
+	    member = #{member},
+	    phone_number = #{phoneNumber}
+	WHERE id = #{id};
+	</update>
+	
+	<!-- INSERT: POST -->
+	<select id="selectAllUser" parameterType="UserVo" resultType="UserVo">
+	SELECT * FROM user
+	</select>
+	
 </mapper>

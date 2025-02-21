@@ -12,4 +12,10 @@ public interface UserMapper {
 
 //	<select id="login" parameterType="UserVo" resultType="UserVo">
 	UserVo login(UserVo user);	
+	
+//	<update id="updateUser" parameterType="UserVo">
+	void updateUser(UserVo userVo);
+	
+//	<select id="selectAllUser" parameterType="UserVo" resultType="UserVo">
+	UserVo selectAllUser(UserVo userVo);
 }
