@@ -50,4 +50,20 @@
 	WHERE user_id = #{userId};
 	</update>
 	
+	<!-- INSERT: POST -->
+	<insert id="insertProfile" parameterType="profileVo">
+        INSERT INTO profile (user_id, file_name, file_path, upload_date)
+        VALUES (#{userId}, #{fileName}, #{filePath}, #{uploadDate})
+    </insert>
+	
+	<!-- RETRIEVE: GET -->
+	<select id="getProfileById" parameterType="int" resultType="profileVo">
+        SELECT id,
+        	 file_name as fileName, 
+        	 file_path as filePath, 
+        	 upload_date as uploadDate
+        FROM profile
+        WHERE id = #{id}
+    </select>
+	
 </mapper>	
