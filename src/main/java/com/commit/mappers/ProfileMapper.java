@@ -19,4 +19,10 @@ public interface ProfileMapper {
 	
 //	<update id="profileUpdate" parameterType="profileVo">
 	int profileUpdate(ProfileVo profile);
+	
+//	<insert id="insertProfile" parameterType="profileVo">
+	void insertProfile(ProfileVo profile);
+	
+//	<select id="getProfileById" parameterType="int" resultType="profileVo">
+    ProfileVo getProfileById(Integer id);
 }
