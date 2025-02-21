@@ -2,6 +2,8 @@ package com.commit.mappers;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.commit.repository.vo.CareerVo;
 
 
@@ -14,7 +16,7 @@ public interface CareerMapper {
 	int careerInsert(CareerVo career);
 	
 //	<insert id="careerInsert2" parameterType="CareerVo">
-	int careerInsert2(CareerVo career);
+//	int careerInsertNull(@Param("userId") int userId);
 	
 //	<update id="careerUpdate" parameterType="CareerVo">
 	int careerUpdate(CareerVo career);

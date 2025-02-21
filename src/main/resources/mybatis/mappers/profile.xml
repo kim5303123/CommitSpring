@@ -29,9 +29,25 @@
 	</insert>
 	
 	<!-- INSERT: POST -->
-	<insert id="profileInsert2" parameterType="profileVo">
+<!-- 	<insert id="profileInsertNull" parameterType="java.lang.Integer">
 	INSERT INTO profile (weight, height, mbti, hobby, photo, military, religion, wealth, marriage, disease, user_id) 
 	VALUES ('', '', '', '', '', '', '', '', '', '', #{userId})
-	</insert>
+	</insert> -->
+	
+	<!-- UPDATE: PUT -->
+	<update id="profileUpdate" parameterType="profileVo">
+	UPDATE profile 
+	SET weight = #{weight}, 
+	    height = #{height}, 
+	    mbti = #{mbti}, 
+	    hobby = #{hobby}, 
+	    photo = #{photo}, 
+	    military = #{military}, 
+	    religion = #{religion}, 
+	    wealth = #{wealth}, 
+	    marriage = #{marriage}, 
+	    disease = #{disease}
+	WHERE user_id = #{userId};
+	</update>
 	
 </mapper>	

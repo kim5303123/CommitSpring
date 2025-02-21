@@ -2,6 +2,8 @@ package com.commit.mappers;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.commit.repository.vo.DegreeVo;
 
 
@@ -14,5 +16,8 @@ public interface DegreeMapper {
 	int degreeInsert(DegreeVo degree);
 	
 //	<insert id="degreeInsert2" parameterType="DegreeVo">
-	int degreeInsert2(DegreeVo degree);
+//	int degreeInsertNull(@Param("userId") int userId);
+	
+//	<update id="degreeUpdate" parameterType="degreeVo">
+	int degreeUpdate(DegreeVo degree);
 }

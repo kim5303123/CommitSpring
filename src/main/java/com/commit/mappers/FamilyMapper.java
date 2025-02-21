@@ -2,6 +2,9 @@ package com.commit.mappers;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
+import com.commit.repository.vo.CareerVo;
 import com.commit.repository.vo.FamilyVo;
 
 
@@ -14,5 +17,8 @@ public interface FamilyMapper {
 	int familyInsert(FamilyVo family);
 	
 //	<insert id="familyInsert2" parameterType="familyVo">
-	int familyInsert2(FamilyVo family);
+//	int familyInsertNull(@Param("userId") int userId);
+
+//	<update id="familyUpdate" parameterType="familyVo">
+	int familyUpdate(FamilyVo family);
 }

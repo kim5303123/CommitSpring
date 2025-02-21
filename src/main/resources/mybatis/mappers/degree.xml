@@ -20,18 +20,31 @@
 	</select>
 	
 	<!-- INSERT: POST -->
-	<insert id="degreeInsert" parameterType="DegreeVo" >
+<!-- 	<insert id="degreeInsert" parameterType="DegreeVo" >
 	INSERT INTO degree (middle_school, high_school, high_major, university, 
 						university_major, graduate_school, graduate_major, user_id)
 	VALUES (#{middleSchool}, #{highSchool}, #{highMajor}, #{university}, 
 			#{universityMajor}, #{graduateSchool}, #{graduateMajor}, #{userId});
-	</insert>
+	</insert> -->
 	 
 	 
 	<!-- INSERT: POST -->
-	<insert id="degreeInsert2" parameterType="DegreeVo">
+	<insert id="degreeInsertNull" parameterType="java.lang.Integer">
 	INSERT INTO degree (middle_school, high_school, high_major, university, 
                     university_major, graduate_school, graduate_major, user_id)
-	VALUES ('', '', '', '', '', '', '', #{id});
+	VALUES ('', '', '', '', '', '', '', #{userId});
 	</insert>
+	
+	<!-- UPDATE: PUT -->
+	<update id="degreeUpdate" parameterType="degreeVo">
+	UPDATE degree 
+	SET middle_school = #{middleSchool}, 
+	    high_school = #{highSchool}, 
+	    high_major = #{highMajor}, 
+	    university = #{university}, 
+	    university_major = #{universityMajor}, 
+	    graduate_school = #{graduateSchool}, 
+	    graduate_major = #{graduateMajor}
+	WHERE user_id = #{userId};
+	</update>
 </mapper>	

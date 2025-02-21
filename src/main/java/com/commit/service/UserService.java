@@ -35,6 +35,10 @@ public class UserService {
 	//	회원가입
 	public UserVo insertUser(UserVo user) {
 		userMapper.insertUser(user);
+//		degreeMapper.degreeInsertNull(user.getId());
+//		careerMapper.careerInsertNull(user.getId());
+//		profileMapper.profileInsertNull(user.getId());
+//		familyMapper.familyInsertNull(user.getId());
 		return user;
 	}
 	
@@ -43,31 +47,32 @@ public class UserService {
         return userMapper.login(user);
 	}
 	
-	//	학위정보 insert
-//    public DegreeVo insertDegree(Integer id ) { 
-//        degreeMapper.degreeInsert2(id);
-//        familyMapper.familyInsert2(id);
-//        profileMapper.profileInsert2(id);
-//        careerMapper.careerInsert2(id);
+//		학위정보 insert
+//    public DegreeVo insertDegree(DegreeVo degreeVo ) {
+//    	userMapper.insertUser(user);
+//        degreeMapper.degreeInsertNull(degreeVo);
+//        familyMapper.familyInsertNull(user.id);
+//        profileMapper.profileInsertNull(id);
+//        careerMapper.careerInsertNull(id);
 //        return degree;
 //	}
-//    
+    
     //	가족정보 insert
-    public FamilyVo insertFamily(FamilyVo family) { 
-        familyMapper.familyInsert2(family); 
-        return family;
-	}
-    
-    //	신상정보 insert
-    public ProfileVo insertProfile(ProfileVo profile) { 
-        profileMapper.profileInsert2(profile); 
-        return profile;
-	}
-    
-    //	직장정보 insert
-    public CareerVo insertCareer(CareerVo career) { 
-        careerMapper.careerInsert2(career); 
-        return career;
-	}
+//    public FamilyVo insertFamily(FamilyVo family) { 
+//        familyMapper.familyInsert2(family); 
+//        return family;
+//	}
+//    
+//    //	신상정보 insert
+//    public ProfileVo insertProfile(ProfileVo profile) { 
+//        profileMapper.profileInsert2(profile); 
+//        return profile;
+//	}
+//    
+//    //	직장정보 insert
+//    public CareerVo insertCareer(CareerVo career) { 
+//        careerMapper.careerInsert2(career); 
+//        return career;
+//	}
     
 }
