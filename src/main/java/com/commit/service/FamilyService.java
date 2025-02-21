@@ -1,12 +1,10 @@
 package com.commit.service;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.commit.mappers.FamilyMapper;
-import com.commit.repository.vo.CareerVo;
 import com.commit.repository.vo.FamilyVo;
 
 
@@ -27,16 +25,22 @@ public class FamilyService {
 		return familyMapper.familyInsert(family);
 	}
 	
-	//	가족 목록 기본값 추가
-//	public int familyInsert2(FamilyVo family) {
-//		return familyMapper.familyInsert2(family);
-//	}
 	
 	//	가족 정보 수정
 	public FamilyVo familyUpdate(FamilyVo family) {
 		familyMapper.familyUpdate(family);
 		return family;
 	}
+	
+	/////////////////////////////////////////////////////////////
+	///// 아래 소스는 삭제 예정
+	////////////////////////////////////////////////////////////
+	
+	
+	//	가족 목록 기본값 추가
+//	public int familyInsert2(FamilyVo family) {
+//		return familyMapper.familyInsert2(family);
+//	}
 	
 //	
 //	//	아이템 삭제

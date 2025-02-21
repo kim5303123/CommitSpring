@@ -1,8 +1,6 @@
 package com.commit.service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +14,6 @@ public class ReviewService {
 	@Autowired
 	private ReviewMapper reviewMapper;
 	
-	private final List<ReviewVo> todos = new ArrayList<>();
 	
 	//	목록 불러오기
 	public List<ReviewVo> selectAllItems() {
@@ -30,13 +27,6 @@ public class ReviewService {
 		return reviewMapper.selectById(id);
 	}
 	
-	//	새 아이템 추가
-//	public ReviewVo insertItem(ReviewVo item) {
-//		reviewMapper.insertItem(item);
-//		//	새로 생성된 item의 PK
-//		Integer id = item.getId();
-//		return reviewMapper.selectById(id);
-//	}
 	
 
 	// 테스트 추가
@@ -49,8 +39,16 @@ public class ReviewService {
 	
 	
 	/////////////////////////////////////////////////////////////
+	///// 아래 소스는 삭제 예정
 	////////////////////////////////////////////////////////////
 	
+	//	새 아이템 추가
+//	public ReviewVo insertItem(ReviewVo item) {
+//		reviewMapper.insertItem(item);
+//		//	새로 생성된 item의 PK
+//		Integer id = item.getId();
+//		return reviewMapper.selectById(id);
+//	}
 	
 	
 	//	아이템 수정

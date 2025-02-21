@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.commit.repository.vo.CareerVo;
 import com.commit.repository.vo.DegreeVo;
 import com.commit.service.DegreeService;
 
@@ -30,6 +29,7 @@ public class DegreeController {
 	
 	
 	//	POST : /api/degree/insert -> 새로운 항목 생성
+	// TODO : result에 담아놓고 쓰지 않은 이유 : 나중에 확인하기 위한 선조치 ( 확인할것 )
 	@PostMapping("/insert")
 	public ResponseEntity<DegreeVo> createDegree(@RequestBody DegreeVo degree) {
 		int result = degreeService.degreeInsert(degree);
@@ -39,7 +39,9 @@ public class DegreeController {
 	
 	
 	
-	
+	//////////////////////////////////////////////////
+	////// 아래 소스는 삭제 예정
+	//////////////////////////////////////////////////
 	
 	
 	

@@ -21,6 +21,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Service
 public class UserService {
 	
+	// 의미있는 주석임
+	
 	@Autowired
 	private UserMapper userMapper;
 //	@Autowired
@@ -62,7 +64,9 @@ public class UserService {
 	}
 	
 	
-	
+	/////////////////////////////////////////////////////////////
+	///// 아래 소스는 삭제 예정
+	////////////////////////////////////////////////////////////
 	
 	
 	
