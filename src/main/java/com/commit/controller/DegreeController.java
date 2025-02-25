@@ -54,6 +54,7 @@ public class DegreeController {
 	public ResponseEntity<DegreeVo> updateDegree(@RequestBody DegreeVo degree) {
 //		degree.setId(id);
 		DegreeVo degreeUpdate = degreeService.degreeUpdate(degree);
+		System.out.println("degreeok");
 		return ResponseEntity.ok(degreeUpdate);
 	}
 	

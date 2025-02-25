@@ -14,6 +14,7 @@ import com.commit.repository.vo.ProfileVo;
 import com.commit.repository.vo.UserVo;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -37,10 +38,6 @@ public class UserService {
 	//	회원가입
 	public UserVo insertUser(UserVo user) {
 		userMapper.insertUser(user);
-//		degreeMapper.degreeInsertNull(user.getId());
-//		careerMapper.careerInsertNull(user.getId());
-//		profileMapper.profileInsertNull(user.getId());
-//		familyMapper.familyInsertNull(user.getId());
 		return user;
 	}
 	
@@ -59,8 +56,8 @@ public class UserService {
 	
 	
 	// 전체 회원 목록
-	public UserVo selectAllUser(UserVo userVo) {
-		return userMapper.selectAllUser(userVo);
+	public List<UserVo> selectAllUser() {
+		return userMapper.selectAllUser();
 	}
 	
 	

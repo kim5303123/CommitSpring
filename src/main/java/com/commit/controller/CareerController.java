@@ -39,10 +39,8 @@ public class CareerController {
 	
 
 	//	PUT : /api/career/modify/{id} -> 기존 항목 수정
-	@PutMapping("/modify/{id}")
-	public ResponseEntity<CareerVo> updateCareer(@RequestBody CareerVo career, 
-												@PathVariable("id") Integer id) {
-		career.setId(id);
+	@PutMapping("/modify")
+	public ResponseEntity<CareerVo> updateCareer(@RequestBody CareerVo career) {
 		CareerVo careerUpdate = careerService.careerUpdate(career);
 		return ResponseEntity.ok(careerUpdate);
 	}

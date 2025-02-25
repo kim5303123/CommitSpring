@@ -34,9 +34,8 @@
 	SET mother = #{mother}, 
 	    father = #{father}, 
 	    child = #{child}, 
-	    sibling = #{sibling}, 
-	    user_id = #{userId}
-	WHERE user_id = #{userId};
+	    sibling = #{sibling} 
+	WHERE id = #{id};
 	</update>
 	
 </mapper>	

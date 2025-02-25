@@ -23,8 +23,11 @@ public class FamilyController {
 	
 	//	GET : /api/family
 	@GetMapping("/{no}")
-	public ResponseEntity<FamilyVo> getAllItems(@PathVariable("no") int id) {
+	public ResponseEntity<?> getAllItems(@PathVariable("no") int id) {
 		FamilyVo familyVo = familyService.familySelect(id);
+		if(familyVo == null) {
+			return ResponseEntity.status(401).body("테이블을 찾지 못함");
+		}
 		return ResponseEntity.ok(familyVo);
 	}
 	
@@ -39,10 +42,9 @@ public class FamilyController {
 	
 	
 	//	PUT : /api/family/modify/{id} -> 기존 항목 수정
-	@PutMapping("/modify/{id}")
-	public ResponseEntity<FamilyVo> updateFamily(@RequestBody FamilyVo family, 
-												@PathVariable("id") Integer id) {
-		family.setId(id);
+	@PutMapping("/modify")
+	public ResponseEntity<FamilyVo> updateFamily(@RequestBody FamilyVo family) {
+
 		FamilyVo familyUpdate = familyService.familyUpdate(family);
 		return ResponseEntity.ok(familyUpdate);
 	}

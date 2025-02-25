@@ -1,5 +1,7 @@
 package com.commit.mappers;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 import org.mybatis.spring.annotation.MapperScan;
 
@@ -17,5 +19,5 @@ public interface UserMapper {
 	void updateUser(UserVo userVo);
 	
 //	<select id="selectAllUser" parameterType="UserVo" resultType="UserVo">
-	UserVo selectAllUser(UserVo userVo);
+	List<UserVo> selectAllUser();
 }

@@ -2,6 +2,8 @@ package com.commit.controller;
 
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -104,6 +106,16 @@ public class UserController {
 			return ResponseEntity.status(401).body("세션을 못가져왔어요");
 		}
         return ResponseEntity.ok(vo);
+    }
+    
+ // GET: /user/session
+    @GetMapping("/all")
+    public ResponseEntity<?> getUsers() {
+    	List<UserVo> Userlist = userService.selectAllUser();
+    	if (Userlist == null) {
+			return ResponseEntity.status(401).body("유저를 못가져왔어요");
+		}
+        return ResponseEntity.ok(Userlist);
     }
 
 

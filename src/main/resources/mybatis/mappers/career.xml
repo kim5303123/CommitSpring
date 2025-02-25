@@ -30,7 +30,7 @@
 	<update id="careerUpdate" parameterType="CareerVo">
 	UPDATE career  
 	SET salary = #{salary}, job = #{job}
-	WHERE user_id = #{userId}
+	WHERE id = #{id}
 	</update>
 	 
 </mapper>	

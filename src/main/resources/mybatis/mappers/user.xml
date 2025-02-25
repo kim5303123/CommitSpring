@@ -30,7 +30,7 @@
 	</update>
 	
 	<!-- INSERT: POST -->
-	<select id="selectAllUser" parameterType="UserVo" resultType="UserVo">
+	<select id="selectAllUser" resultType="hashmap">
 	SELECT * FROM user
 	</select>
 	
