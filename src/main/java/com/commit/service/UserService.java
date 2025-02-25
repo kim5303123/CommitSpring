@@ -21,16 +21,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Service
 public class UserService {
 	
+	// 의미있는 주석임
+	
 	@Autowired
 	private UserMapper userMapper;
-	@Autowired
-	private DegreeMapper degreeMapper;
-	@Autowired
-	private FamilyMapper familyMapper;
-	@Autowired
-	private ProfileMapper profileMapper;
-	@Autowired
-	private CareerMapper careerMapper;
+//	@Autowired
+//	private DegreeMapper degreeMapper;
+//	@Autowired
+//	private FamilyMapper familyMapper;
+//	@Autowired
+//	private ProfileMapper profileMapper;
+//	@Autowired
+//	private CareerMapper careerMapper;
 	
 	//	회원가입
 	public UserVo insertUser(UserVo user) {
@@ -42,10 +44,33 @@ public class UserService {
 		return user;
 	}
 	
+	
 	//	로그인
 	public UserVo login(UserVo user) {
         return userMapper.login(user);
 	}
+	
+	
+	// 회원 정보 변경
+	public UserVo updateUser(UserVo userVo) {
+		userMapper.updateUser(userVo);
+		return userVo;
+	}
+	
+	
+	// 전체 회원 목록
+	public UserVo selectAllUser(UserVo userVo) {
+		return userMapper.selectAllUser(userVo);
+	}
+	
+	
+	/////////////////////////////////////////////////////////////
+	///// 아래 소스는 삭제 예정
+	////////////////////////////////////////////////////////////
+	
+	
+	
+	
 	
 //		학위정보 insert
 //    public DegreeVo insertDegree(DegreeVo degreeVo ) {
@@ -57,7 +82,7 @@ public class UserService {
 //        return degree;
 //	}
     
-    //	가족정보 insert
+//    //	가족정보 insert
 //    public FamilyVo insertFamily(FamilyVo family) { 
 //        familyMapper.familyInsert2(family); 
 //        return family;

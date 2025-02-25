@@ -1,13 +1,11 @@
 package com.commit.service;
 
 import java.io.IOException;
-import java.net.Inet4Address;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +14,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.commit.mappers.ProfileMapper;
-import com.commit.repository.vo.CareerVo;
 import com.commit.repository.vo.ProfileVo;
 
 import jakarta.annotation.PostConstruct;
@@ -58,10 +55,6 @@ public class ProfileService {
 		return profileMapper.profileInsert(profile);
 	}
 	
-	//	신상 정보 기본값 추가
-//	public int profileInsert2(ProfileVo profile) {
-//		return profileMapper.profileInsert2(profile);
-//	}
 	
 	//	신상 정보 수정
 	public ProfileVo profileUpdate(ProfileVo profile) {
@@ -91,6 +84,16 @@ public class ProfileService {
 	public ProfileVo getProfileById(Integer id) {
         return profileMapper.getProfileById(id);
     }
+	
+	/////////////////////////////////////////////////////////////
+	///// 아래 소스는 삭제 예정
+	////////////////////////////////////////////////////////////
+	
+	
+	//	신상 정보 기본값 추가
+//	public int profileInsert2(ProfileVo profile) {
+//		return profileMapper.profileInsert2(profile);
+//	}
 	
 //	
 //	//	아이템 삭제
