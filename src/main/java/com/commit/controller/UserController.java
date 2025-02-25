@@ -74,10 +74,11 @@ public class UserController {
         if (loginUser != null) {
         	session = request.getSession(true);	//	새로운 세션 생성
         	session.setAttribute("loginUser", loginUser);	// 로그인한 사용자 정보 저장
+        	System.out.println(session.getAttribute("loginUser"));
             return ResponseEntity.ok(loginUser);
         }
         return ResponseEntity.status(401).body("로그인 실패");
-    }
+}
 
     // GET: /users/logout - 로그아웃
     @GetMapping("/logout")
@@ -90,5 +91,16 @@ public class UserController {
     	
         return ResponseEntity.ok("로그아웃 성공");
 	}
-	
+    
+    // GET: /user/session
+    @GetMapping("/session")
+    public ResponseEntity<?> getUserSession(HttpSession session) {
+    	UserVo vo = (UserVo)session.getAttribute("loginUser");
+    	System.out.println(session.getAttribute("loginUser"));
+    	
+    	if (vo == null) {
+			return ResponseEntity.status(401).body("세션을 못가져왔어요");
+		}
+        return ResponseEntity.ok(vo);
+    }
 }

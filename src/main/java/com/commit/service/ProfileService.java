@@ -76,6 +76,7 @@ public class ProfileService {
         Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
 
         ProfileVo profile = new ProfileVo();
+        profile.setUserId(1);
         profile.setFileName(fileName);
         profile.setFilePath(filePath.toString());
         profile.setUploadDate(new Date());

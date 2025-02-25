@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,10 +22,13 @@ public class DegreeController {
 	@Autowired
 	private DegreeService degreeService;
 	
-	//	GET : /api/degree
+//	GET : /api/degree
 	@GetMapping("/{no}")
-	public ResponseEntity<DegreeVo> getAllItems(@PathVariable("no") int id) {
+	public ResponseEntity<?> getAllItems(@PathVariable("no") int id) {
 		DegreeVo degree = degreeService.degreeSelect(id);
+		if(degree == null) {
+			return ResponseEntity.status(401).body("테이블을 찾지 못함");
+		}
 		return ResponseEntity.ok(degree);
 	}
 	
@@ -41,18 +45,15 @@ public class DegreeController {
 	
 	
 	
-	
-	
-	
-	
-	//	PUT : /api/degree/modify/{id} -> 기존 항목 수정
-//	@PostMapping("/modify/{id}")
-//	public ResponseEntity<DegreeVo> updateDegree(@RequestBody DegreeVo degree,
-//												@PathVariable("id") Integer id) {
+//	PUT : /api/degree/modify/{id} -> 기존 항목 수정
+
+
+	@PutMapping("/modify")
+	public ResponseEntity<DegreeVo> updateDegree(@RequestBody DegreeVo degree) {
 //		degree.setId(id);
-//		DegreeVo degreeUpdate = degreeService.degreeUpdate(degree);
-//		return ResponseEntity.ok(degreeUpdate);
-//	}
+		DegreeVo degreeUpdate = degreeService.degreeUpdate(degree);
+		return ResponseEntity.ok(degreeUpdate);
+	}
 	
 	//	POST : /api/degree/insert2 -> 기본값 생성
 //	@PostMapping("/insert2")
