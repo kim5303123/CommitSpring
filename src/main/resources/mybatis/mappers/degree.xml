@@ -46,4 +46,8 @@
 	    graduate_major = #{graduateMajor}
 	WHERE id = #{id};
 	</update>
+	<!-- SELECT: GET -->
+	<select id="selectAllDegree" resultType="hashmap">
+	SELECT * FROM degree;
+	</select>
 </mapper>	

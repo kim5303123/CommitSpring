@@ -1,7 +1,10 @@
 package com.commit.mappers;
 
 
+import java.util.List;
+
 import com.commit.repository.vo.CareerVo;
+
 
 
 public interface CareerMapper {
@@ -17,4 +20,6 @@ public interface CareerMapper {
 	
 //	<update id="careerUpdate" parameterType="CareerVo">
 	int careerUpdate(CareerVo career);
+	
+	List<CareerVo> selectAllCareer();
 }

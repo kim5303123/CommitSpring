@@ -1,11 +1,14 @@
 package com.commit.service;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.commit.mappers.DegreeMapper;
 import com.commit.repository.vo.DegreeVo;
+import com.commit.repository.vo.UserVo;
 
 
 @Service
@@ -32,12 +35,9 @@ public class DegreeService {
 		return degree;
 	}
 	
-	/////////////////////////////////////////////////////////////
-	///// 아래 소스는 삭제 예정
-	////////////////////////////////////////////////////////////
-	
-	// 	학위 정보 기본값 추가
-//	public int degreeInsert2(DegreeVo degree) {	
-//		return degreeMapper.degreeInsert2(degree);
-//	}
+	// 전체 회원 목록
+		public List<DegreeVo> selectAllDegree() {
+			return degreeMapper.selectAllDegree();
+		}
+
 }

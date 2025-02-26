@@ -1,6 +1,8 @@
 package com.commit.controller;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.commit.repository.vo.CareerVo;
+import com.commit.repository.vo.DegreeVo;
 import com.commit.service.CareerService;
 
 @RestController
@@ -44,24 +47,16 @@ public class CareerController {
 		CareerVo careerUpdate = careerService.careerUpdate(career);
 		return ResponseEntity.ok(careerUpdate);
 	}
+	
+	 @GetMapping("/all")
+	    public ResponseEntity<?> getCareers() {
+	    	List<CareerVo> CareerList = careerService.selectAllCareer();
+	    	if (CareerList == null) {
+				return ResponseEntity.status(401).body("유저를 못가져왔어요");
+			}
+	        return ResponseEntity.ok(CareerList);
+	    }
 
-	
-	//////////////////////////////////////////////////
-	////// 아래 소스는 삭제 예정
-	//////////////////////////////////////////////////
-	
-	
-	
-	
-	//	POST : /api/career/insert2 -> 기본값 생성
-//	@GetMapping("/insert2")
-//	public ResponseEntity<Void> createCareer2() {
-//		int userId = 1;
-//		int result = careerService.careerInsertNull(1);
-//		return ResponseEntity.ok().<Void>build();
-//	}
-	
-	
 //	DELETE : /api/board/{id} -> 기존 항목 삭제
 //	@DeleteMapping("/{id}")
 //	//	Body에 실어 보낼 내용이 없음 -> Void

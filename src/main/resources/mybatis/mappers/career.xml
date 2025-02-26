@@ -32,5 +32,10 @@
 	SET salary = #{salary}, job = #{job}
 	WHERE id = #{id}
 	</update>
+	
+	<!-- SELECT: GET -->
+	<select id="selectAllCareer" resultType="hashmap">
+	SELECT * FROM career
+	</select>
 	 
 </mapper>	

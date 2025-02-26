@@ -29,7 +29,7 @@
 	WHERE id = #{id};
 	</update>
 	
-	<!-- INSERT: POST -->
+	<!-- SELECT: GET -->
 	<select id="selectAllUser" resultType="hashmap">
 	SELECT * FROM user
 	</select>

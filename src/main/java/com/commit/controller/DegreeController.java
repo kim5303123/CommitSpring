@@ -1,6 +1,8 @@
 package com.commit.controller;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.commit.repository.vo.DegreeVo;
+import com.commit.repository.vo.UserVo;
 import com.commit.service.DegreeService;
 
 @RestController
@@ -64,4 +67,14 @@ public class DegreeController {
 //		int result = degreeService.degreeInsert2(degree);
 //		return ResponseEntity.ok(degree);
 //	}
+	
+	// GET: /user/session
+    @GetMapping("/all")
+    public ResponseEntity<?> getDegrees() {
+    	List<DegreeVo> degreeList = degreeService.selectAllDegree();
+    	if (degreeList == null) {
+			return ResponseEntity.status(401).body("유저를 못가져왔어요");
+		}
+        return ResponseEntity.ok(degreeList);
+    }
 }

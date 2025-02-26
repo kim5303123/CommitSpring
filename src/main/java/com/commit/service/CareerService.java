@@ -1,11 +1,14 @@
 package com.commit.service;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.commit.mappers.CareerMapper;
 import com.commit.repository.vo.CareerVo;
+import com.commit.repository.vo.DegreeVo;
 
 
 @Service
@@ -32,16 +35,9 @@ public class CareerService {
 
 	}
 	
-	
-	/////////////////////////////////////////////////////////////
-	///// 아래 소스는 삭제 예정
-	////////////////////////////////////////////////////////////
-	
-	
-	
-	//	직업 정보 기본값 추가
-//	public int careerInsertNull(int userId) {
-//		return careerMapper.careerInsertNull(userId);
-//	}
+	// 전체 회원 목록
+	public List<CareerVo> selectAllCareer() {
+		return careerMapper.selectAllCareer();
+	}
 	
 }

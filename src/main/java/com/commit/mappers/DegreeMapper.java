@@ -1,6 +1,8 @@
 package com.commit.mappers;
 
 
+import java.util.List;
+
 import com.commit.repository.vo.DegreeVo;
 
 
@@ -17,4 +19,6 @@ public interface DegreeMapper {
 	
 //	<update id="degreeUpdate" parameterType="degreeVo">
 	int degreeUpdate(DegreeVo degree);
+	
+	List<DegreeVo> selectAllDegree();
 }
