@@ -29,9 +29,30 @@
 	WHERE id = #{id};
 	</update>
 	
+	<!-- RETRIEVE: GET -->
+	<select id="selectById" parameterType="int"
+		resultType="UserVo">
+		select 
+			name,
+		    email,
+		    password,
+		    gender,
+		    birth,
+		    address,
+		    member,
+		    phone_number as phoneNumber
+		from user    
+		where id=#{id}
+	</select>
+	
 	<!-- SELECT: GET -->
 	<select id="selectAllUser" resultType="hashmap">
 	SELECT * FROM user
 	</select>
+	
+	<!-- DELETE: DELETE -->
+	<delete id="userInfoDelete" parameterType="int">
+	DELETE FROM user WHERE id=#{id}	
+	</delete>
 	
 </mapper>

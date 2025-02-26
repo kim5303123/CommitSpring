@@ -40,41 +40,4 @@ public class BoardController {
 		return ResponseEntity.ok(updatedItem);
 	}
 	
-	
-	
-	
-	//////////////////////////////////////////////////
-	////// 아래 소스는 삭제 예정
-	//////////////////////////////////////////////////
-	
-	
-	
-	
-	
-//	id로 검색
-//	@GetMapping("/{id}")
-//	public ResponseEntity<TodoItem> getTodoById(
-//			@PathVariable("id") Long id) {
-//		Optional<TodoItem> todo = todoRepository.findById(id);
-//		return todo.map(ResponseEntity::ok)
-//				.orElseGet(() -> ResponseEntity.notFound().build());
-//	}
-	
-	
-//	POST : /api/board -> 새로운 항목 생성
-//	@PostMapping
-//	public ResponseEntity<BoardVo> createItem(@RequestBody BoardVo item) {
-//		BoardVo savedItem = boardService.insertItem(item);
-//		return ResponseEntity.ok(savedItem);	
-//	}
-	
-//	DELETE : /api/board/{id} -> 기존 항목 삭제
-//	@DeleteMapping("/{id}")
-//	//	Body에 실어 보낼 내용이 없음 -> Void
-//	public ResponseEntity<Void> 
-//		deleteItem(@PathVariable("id") Integer id) {
-//		boardService.deleteItem(id);
-//		return ResponseEntity.ok().<Void>build();
-//	}
-	
 }

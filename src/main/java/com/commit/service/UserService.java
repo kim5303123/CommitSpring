@@ -60,41 +60,15 @@ public class UserService {
 		return userMapper.selectAllUser();
 	}
 	
-	
-	/////////////////////////////////////////////////////////////
-	///// 아래 소스는 삭제 예정
-	////////////////////////////////////////////////////////////
-	
-	
+	// 단건 조회
+	public UserVo selectById(Integer id) {
+		return userMapper.selectById(id);
+	}
 	
 	
-	
-//		학위정보 insert
-//    public DegreeVo insertDegree(DegreeVo degreeVo ) {
-//    	userMapper.insertUser(user);
-//        degreeMapper.degreeInsertNull(degreeVo);
-//        familyMapper.familyInsertNull(user.id);
-//        profileMapper.profileInsertNull(id);
-//        careerMapper.careerInsertNull(id);
-//        return degree;
-//	}
-    
-//    //	가족정보 insert
-//    public FamilyVo insertFamily(FamilyVo family) { 
-//        familyMapper.familyInsert2(family); 
-//        return family;
-//	}
-//    
-//    //	신상정보 insert
-//    public ProfileVo insertProfile(ProfileVo profile) { 
-//        profileMapper.profileInsert2(profile); 
-//        return profile;
-//	}
-//    
-//    //	직장정보 insert
-//    public CareerVo insertCareer(CareerVo career) { 
-//        careerMapper.careerInsert2(career); 
-//        return career;
-//	}
-    
+	//	유저 정보 삭제
+	public int userInfoDelete(Integer id) {
+		return userMapper.userInfoDelete(id);
+	}
+
 }

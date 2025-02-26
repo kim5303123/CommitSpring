@@ -20,4 +20,10 @@ public interface UserMapper {
 	
 //	<select id="selectAllUser" parameterType="UserVo" resultType="UserVo">
 	List<UserVo> selectAllUser();
+	
+//	<select id="selectById" parameterType="int"	resultType="UserVo">
+	UserVo selectById(Integer id);
+	
+//	<delete id="userInfoDelete" parameterType="int">
+	int userInfoDelete(Integer id);
 }

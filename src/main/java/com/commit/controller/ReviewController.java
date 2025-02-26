@@ -44,54 +44,11 @@ public class ReviewController {
     }
 	
 	
-//	POST : /api/review -> 새로운 항목 생성
-//	@PostMapping
-//	public ResponseEntity<ReviewVo> createItem(@RequestBody ReviewVo item) {
-//		ReviewVo savedItem = reviewService.insertItem(item);
-//		return ResponseEntity.ok(savedItem);	
-//	}
-	
-	
-	
-	// 테스트 추가
+	// 
 	 @PostMapping
 	    public ResponseEntity<ReviewVo> createItem(@RequestBody ReviewVo item) {
 	        ReviewVo savedItem = reviewService.insertItem(item);
 	        return ResponseEntity.ok(savedItem);    
 	    }
-	
-	
-	
-	
-	
-	/////////////////////////////////////////////////////////////
-	////// 아래 소스는 삭제 예정
-	////////////////////////////////////////////////////////////
-	
-	
-	
-	
-	
-	
-	
-	
-	
-//	PUT : /api/board/{id} -> 기존 항목 수정
-	@PutMapping("/{id}")
-	public ResponseEntity<ReviewVo> updateItem(@RequestBody ReviewVo item,
-			@PathVariable("id") Integer id) {
-		item.setId(id);
-		ReviewVo updatedItem = reviewService.updateItem(item);
-		return ResponseEntity.ok(updatedItem);
-	}
-	
-//	DELETE : /api/board/{id} -> 기존 항목 삭제
-	@DeleteMapping("/{id}")
-	//	Body에 실어 보낼 내용이 없음 -> Void
-	public ResponseEntity<Void> 
-		deleteItem(@PathVariable("id") Integer id) {
-		reviewService.deleteItem(id);
-		return ResponseEntity.ok().<Void>build();
-	}
 	
 }

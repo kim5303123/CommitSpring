@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.commit.repository.vo.DegreeVo;
-import com.commit.repository.vo.UserVo;
 import com.commit.service.DegreeService;
 
 @RestController
@@ -42,31 +41,7 @@ public class DegreeController {
 		int result = degreeService.degreeInsert(degree);
 		return ResponseEntity.ok(degree);
 	}
-	
-	
-	
-	
-	//////////////////////////////////////////////////
-	////// 아래 소스는 삭제 예정
-	//////////////////////////////////////////////////
-	
-//	PUT : /api/degree/modify/{id} -> 기존 항목 수정
 
-
-	@PutMapping("/modify")
-	public ResponseEntity<DegreeVo> updateDegree(@RequestBody DegreeVo degree) {
-//		degree.setId(id);
-		DegreeVo degreeUpdate = degreeService.degreeUpdate(degree);
-		System.out.println("degreeok");
-		return ResponseEntity.ok(degreeUpdate);
-	}
-	
-	//	POST : /api/degree/insert2 -> 기본값 생성
-//	@PostMapping("/insert2")
-//	public ResponseEntity<DegreeVo> createDegree2(@RequestBody DegreeVo degree) {
-//		int result = degreeService.degreeInsert2(degree);
-//		return ResponseEntity.ok(degree);
-//	}
 	
 	// GET: /user/session
     @GetMapping("/all")

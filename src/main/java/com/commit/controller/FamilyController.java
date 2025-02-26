@@ -49,31 +49,4 @@ public class FamilyController {
 		return ResponseEntity.ok(familyUpdate);
 	}
 	
-	
-	//////////////////////////////////////////////////
-	////// 아래 소스는 삭제 예정
-	//////////////////////////////////////////////////
-	
-	
-	
-	
-	
-	//	POST : /api/family/insert2 -> 기본값 생성
-//	@PostMapping("/insert2")
-//	public ResponseEntity<FamilyVo> createFamily2(@RequestBody FamilyVo family) {
-//		int result = familyService.familyInsert2(family);
-//		return ResponseEntity.ok(family);	
-//	}
-	
-	
-//	
-//	DELETE : /api/board/{id} -> 기존 항목 삭제
-//	@DeleteMapping("/{id}")
-//	//	Body에 실어 보낼 내용이 없음 -> Void
-//	public ResponseEntity<Void> 
-//		deleteItem(@PathVariable("id") Integer id) {
-//		familyService.deleteItem(id);
-//		return ResponseEntity.ok().<Void>build();
-//	}
-	
 }

@@ -3,10 +3,14 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.commit.mappers.PhotoMapper">
 
-	<insert id="insertPhoto" parameterType="photoVo">
-		INSERT INTO photo (file_name, file_path, upload_date, profile_id)
-		VALUES (#{fileName}, #{filePath}, #{uploadDate}, #{profileId})
-	</insert>
+	<insert id="insertOrUpdatePhoto" parameterType="photoVo">
+    INSERT INTO photo (file_name, file_path, upload_date, profile_id)
+    VALUES (#{fileName}, #{filePath}, #{uploadDate}, #{profileId})
+    ON DUPLICATE KEY UPDATE
+        file_name = VALUES(file_name),
+        file_path = VALUES(file_path),
+        upload_date = VALUES(upload_date)
+</insert>
 
 	<!-- RETRIEVE: GET -->
 	<select id="getProfileById" parameterType="int"

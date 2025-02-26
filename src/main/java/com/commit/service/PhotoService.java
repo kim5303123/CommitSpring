@@ -22,12 +22,11 @@ import com.commit.repository.vo.PhotoVo;
 
 @Service
 public class PhotoService {
-	@Value("${file.upload-dir}")
-	private String uploadDir;
-	
 	@Autowired
     private PhotoMapper photoMapper;
     
+    @Value("${file.upload-dir}")
+    private String uploadDir;
 
     public String uploadProfilePicture(MultipartFile file, Integer profileId) throws IOException {
         String fileName = UUID.randomUUID().toString() + "_" + file.getOriginalFilename();
@@ -40,7 +39,7 @@ public class PhotoService {
         photo.setUploadDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
         photo.setProfileId(profileId);
 
-        photoMapper.insertPhoto(photo);
+        photoMapper.insertOrUpdatePhoto(photo);  
 
         return filePath.toString();
     }

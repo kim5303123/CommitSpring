@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.commit.repository.vo.CareerVo;
-import com.commit.repository.vo.DegreeVo;
 import com.commit.service.CareerService;
 
 @RestController
@@ -56,14 +55,5 @@ public class CareerController {
 			}
 	        return ResponseEntity.ok(CareerList);
 	    }
-
-//	DELETE : /api/board/{id} -> 기존 항목 삭제
-//	@DeleteMapping("/{id}")
-//	//	Body에 실어 보낼 내용이 없음 -> Void
-//	public ResponseEntity<Void> 
-//		deleteItem(@PathVariable("id") Integer id) {
-//		careerService.deleteItem(id);
-//		return ResponseEntity.ok().<Void>build();
-//	}
 	
 }

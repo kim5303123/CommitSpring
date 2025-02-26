@@ -23,7 +23,7 @@ public class PhotoController {
 	@Autowired
 	private PhotoService photoService;
 
-//	POST : /api/profile/photoupload -> 프로필 사진 업로드
+//	POST : /api/photo/upload -> 프로필 사진 업로드
 	@PostMapping("/upload")
 	public ResponseEntity<String> uploadProfilePicture(@RequestParam("file") MultipartFile file,
 			@RequestParam("profileId") Integer profileId) {
@@ -40,7 +40,7 @@ public class PhotoController {
 		}
 	}
 
-//GET : /api/photo/upload/{id} -> 프로필 사진 조회
+//	GET : /api/photo/upload/{id} -> 프로필 사진 조회
 	@GetMapping("/upload/{id}")
 	public ResponseEntity<PhotoVo> getProfile(@PathVariable Integer id) {
 		PhotoVo profile = photoService.getProfileById(id);
