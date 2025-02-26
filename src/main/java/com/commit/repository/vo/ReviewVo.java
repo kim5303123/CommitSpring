@@ -29,5 +29,5 @@ public class ReviewVo {
 
 	//
     // 추가 필드
-    Integer userId;	 
+    private Integer userId;	 
 }

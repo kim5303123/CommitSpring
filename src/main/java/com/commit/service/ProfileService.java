@@ -61,43 +61,7 @@ public class ProfileService {
 		profileMapper.profileUpdate(profile);
 		return profile;
 	}
-	
-	// 프로필 업로드
-	public String uploadProfilePicture(MultipartFile file) throws IOException {
-        String fileName = UUID.randomUUID().toString() + "_" + file.getOriginalFilename();
-        Path filePath = Paths.get(uploadDir, fileName);
-        Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
+}	
 
-        ProfileVo profile = new ProfileVo();
-        profile.setUserId(1);
-        profile.setFileName(fileName);
-        profile.setFilePath(filePath.toString());
-        profile.setUploadDate(new Date());
-
-        profileMapper.insertProfile(profile);
-
-        return filePath.toString();
-    }
 	
 	
-	//	프로필 사진 조회
-	public ProfileVo getProfileById(Integer id) {
-        return profileMapper.getProfileById(id);
-    }
-	
-	/////////////////////////////////////////////////////////////
-	///// 아래 소스는 삭제 예정
-	////////////////////////////////////////////////////////////
-	
-	
-	//	신상 정보 기본값 추가
-//	public int profileInsert2(ProfileVo profile) {
-//		return profileMapper.profileInsert2(profile);
-//	}
-	
-//	
-//	//	아이템 삭제
-//	public int deleteItem(Integer id) {
-//		return profileMapper.deleteItem(id);
-//	}	
-}
