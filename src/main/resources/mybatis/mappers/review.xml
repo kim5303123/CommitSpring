@@ -6,7 +6,8 @@
 	<!-- RETRIEVE: GET -->
 	<select id="selectAllItems" resultType="reviewVo">
 		select id
-		,mypage_id as mypageId
+		,mypage_id as
+		mypageId
 		,title
 		,contents
 		,reg_date as regDate
@@ -23,41 +24,45 @@
 		,mypage_id as mypageId
 		,title
 		,contents
-		,reg_date as regDate
+		,reg_date as
+		regDate
 		,rating
 		from review
 		where id=#{id}
 	</select>
 
 	<!-- INSERT: POST -->
-	<insert id="insertItemWithUserInfo" parameterType="reviewVo" useGeneratedKeys="true" keyProperty="id">
-    INSERT INTO review (mypage_id, title, contents, reg_date, rating)
-    SELECT 
-        u.id,        
-        #{title},
-        CONCAT('사용자 ', u.name, '(', p.mbti, ')의 리뷰: ', #{contents}),
-        #{regDate},
-        #{rating}
-    FROM 
-        user u
-    JOIN 
-        profile p ON u.id = p.user_id
-    WHERE 
-        u.id = #{userId}
-</insert>
-	
-	
+	<insert id="insertItemWithUserInfo" parameterType="reviewVo"
+		useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO review (mypage_id, title, contents, reg_date, rating)
+		SELECT
+		u.id,
+		#{title},
+		CONCAT('사용자 ', u.name, '(', p.mbti, ')의 리뷰: ', #{contents}),
+		#{regDate},
+		#{rating}
+		FROM
+		user u
+		JOIN
+		profile p ON u.id = p.user_id
+		WHERE
+		u.id = #{userId}
+	</insert>
+
+
 	<!-- UPDATE: PUT -->
 	<update id="updateItem" parameterType="reviewVo">
 		UPDATE board
-		SET user_id=#{userId}, title=#{title}, plan=#{plan},
+		SET
+		user_id=#{userId}, title=#{title}, plan=#{plan},
 		introduction=#{introduction}
 		WHERE id=#{id}
 	</update>
 
 	<!-- DELETE: DELETE -->
 	<delete id="deleteItem" parameterType="int">
-		DELETE FROM board WHERE id=#{id}
+		DELETE FROM board WHERE
+		id=#{id}
 	</delete>
 
 </mapper>

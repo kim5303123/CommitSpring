@@ -11,13 +11,18 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class MypageVo {
+public class PhotoVo {
 
 	//	id
 	private Integer id;
-	//	포인트
-	private String point;
-	
+	//	파일이름
+	private String fileName;
+	//	파일경로
+	private String filePath;
+	//	업로드 날짜
+	private String uploadDate;
+	//	프로필 ID
+	private Integer profileId;
 	 
 	
 

@@ -40,13 +40,4 @@ public class ProfileVo {
 	//	질병
 	private String disease;
 	
-	///// 파일 업로드로 인한 vo 추가
-	
-	//	파일이름
-	private String fileName;
-	//	파일경로
-	private String filePath;
-	//	업로드 날짜
-	private Date uploadDate;
-	
 }
