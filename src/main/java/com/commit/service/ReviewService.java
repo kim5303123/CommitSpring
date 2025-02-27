@@ -1,6 +1,8 @@
 package com.commit.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,40 +29,8 @@ public class ReviewService {
 		return reviewMapper.selectById(id);
 	}
 	
-	
-
-	// 테스트 추가
-	public ReviewVo insertItem(ReviewVo item) {
-        reviewMapper.insertItemWithUserInfo(item);
-        return item; // id가 자동으로 설정됩니다.
+	public int insertReview(ReviewVo reviewVo) {
+        return reviewMapper.insertReview(reviewVo);
     }
-	
-	
-	
-	
-	/////////////////////////////////////////////////////////////
-	///// 아래 소스는 삭제 예정
-	////////////////////////////////////////////////////////////
-	
-	//	새 아이템 추가
-//	public ReviewVo insertItem(ReviewVo item) {
-//		reviewMapper.insertItem(item);
-//		//	새로 생성된 item의 PK
-//		Integer id = item.getId();
-//		return reviewMapper.selectById(id);
-//	}
-	
-	
-	//	아이템 수정
-	public ReviewVo updateItem(ReviewVo item) {
-		reviewMapper.updateItem(item);
-		return item;
-	}
-	
-	//	아이템 삭제
-	public int deleteItem(Integer id) {
-		return reviewMapper.deleteItem(id);
-	}
-	
 	
 }

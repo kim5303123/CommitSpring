@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.commit.repository.vo.ReviewVo;
@@ -43,12 +44,15 @@ public class ReviewController {
         }
     }
 	
-	
-	// 
-	 @PostMapping
-	    public ResponseEntity<ReviewVo> createItem(@RequestBody ReviewVo item) {
-	        ReviewVo savedItem = reviewService.insertItem(item);
-	        return ResponseEntity.ok(savedItem);    
-	    }
+	@PostMapping("/create")
+	public ResponseEntity<String> insertReview(@RequestBody ReviewVo reviewVo) {
+        int result = reviewService.insertReview(reviewVo);
+        if (result > 0) {
+            return ResponseEntity.ok("리뷰가 성공적으로 등록되었습니다.");
+        } else {
+            return ResponseEntity.badRequest().body("리뷰 등록에 실패했습니다.");
+        }
+    }
+
 	
 }
