@@ -8,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -35,11 +34,16 @@ public class DegreeController {
 	
 	
 	//	POST : /api/degree/insert -> 새로운 항목 생성
-	// TODO : result에 담아놓고 쓰지 않은 이유 : 나중에 확인하기 위한 선조치 ( 확인할것 )
 	@PostMapping("/insert")
-	public ResponseEntity<DegreeVo> createDegree(@RequestBody DegreeVo degree) {
-		int result = degreeService.degreeInsert(degree);
-		return ResponseEntity.ok(degree);
+	public ResponseEntity<String> createDegree(@RequestBody DegreeVo degree) {
+		int result = degreeService.degreeInsert(degree);		
+		if (result > 0) {
+            return ResponseEntity.ok("리뷰가 성공적으로 등록되었습니다.");
+        } else {
+            return ResponseEntity.badRequest().body("리뷰 등록에 실패했습니다.");
+        }
+		
+		
 	}
 
 	

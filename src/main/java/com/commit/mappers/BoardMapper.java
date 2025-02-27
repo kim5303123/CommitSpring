@@ -11,25 +11,5 @@ public interface BoardMapper {
 	
 //	<update id="updateItem" parameterType="boardVo">
 	int updateItem(BoardVo item);
-	
-	
-	
-	
-	
-	/////////////////////////////////////////////////////////////
-	/// 아래 소스는 삭제 예정
-	////////////////////////////////////////////////////////////
-	
-	
-	
-	
-//	<insert id="insertItem" parameterType="shopItem">
-	int insertItem(BoardVo item);
-	
-//	<select id="selectById" parameterType="int" resultType="shopItem">
-	BoardVo selectById(Integer id);
-	
-	
-//	<delete id="deleteItem" parameterType="int">
-	int deleteItem(Integer id);
+
 }

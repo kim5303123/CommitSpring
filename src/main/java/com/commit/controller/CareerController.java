@@ -32,11 +32,14 @@ public class CareerController {
 	
 	
 	//	POST : /api/career/insert -> 새로운 항목 생성
-	// TODO : result에 담아놓고 쓰지 않은 이유 : 나중에 확인하기 위한 선조치 ( 확인할것 )
 	@PostMapping("/insert")
-	public ResponseEntity<CareerVo> createCareer(@RequestBody CareerVo career) {
-		int result = careerService.careerInsert(career);
-		return ResponseEntity.ok(career);	
+	public ResponseEntity<String> createCareer(@RequestBody CareerVo career) {
+		int result = careerService.careerInsert(career);		
+		if (result > 0) {
+            return ResponseEntity.ok("리뷰가 성공적으로 등록되었습니다.");
+        } else {
+            return ResponseEntity.badRequest().body("리뷰 등록에 실패했습니다.");
+        }	
 	}
 	
 

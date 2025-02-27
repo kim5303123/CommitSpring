@@ -20,12 +20,6 @@
 	VALUES (#{id}, #{salary}, #{job}, #{userId})
 	</insert>
 	
-	<!-- INSERT: POST -->
-<!--  	<insert id="careerInsertNull" parameterType="java.lang.Integer">
-	INSERT INTO career (salary, job, user_id) 
-	VALUES ('', '', #{userId})
-	</insert> -->
-	
 	<!-- UPDATE: PUT -->
 	<update id="careerUpdate" parameterType="CareerVo">
 	UPDATE career  

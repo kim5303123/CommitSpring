@@ -2,20 +2,16 @@ package com.commit.controller;
 
 
 
-import java.lang.System.Logger;
 import java.util.List;
 
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,8 +28,6 @@ import jakarta.servlet.http.HttpSession;
 
 public class UserController {
 
-	private static final org.slf4j.Logger logger = LoggerFactory.getLogger(UserController.class);
-	
 	@Autowired
 	private UserService userService;
     
@@ -50,14 +44,6 @@ public class UserController {
     	UserVo savedUserVo = userService.insertUser(userVo);
     	return ResponseEntity.ok(savedUserVo);
     }
-
-    
-    //	POST: /user/join/info -> 가입정보 입력 처리
-//    @PostMapping("/join/info")
-//    public ResponseEntity<UserVo> joinInfo(@RequestBody UserVo user) {
-//        UserVo registeredUser = userService.insertUser(user);
-//        return ResponseEntity.ok(registeredUser);
-//    }
 
     
     //	GET: /user/joinsuccess -> 가입 성공 화면

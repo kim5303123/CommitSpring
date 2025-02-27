@@ -2,8 +2,6 @@ package com.commit.mappers;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Mapper;
-import org.mybatis.spring.annotation.MapperScan;
 
 import com.commit.repository.vo.UserVo;
 

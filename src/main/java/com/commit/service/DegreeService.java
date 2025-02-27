@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.commit.mappers.DegreeMapper;
 import com.commit.repository.vo.DegreeVo;
-import com.commit.repository.vo.UserVo;
 
 
 @Service

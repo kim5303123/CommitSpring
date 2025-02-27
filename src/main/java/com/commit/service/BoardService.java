@@ -27,27 +27,5 @@ public class BoardService {
 		boardMapper.updateItem(item);
 		return item;
 	}
-	
-	
-	
-	/////////////////////////////////////////////////////////////
-	///// 아래 소스는 삭제 예정
-	////////////////////////////////////////////////////////////
-	
-	
-	
-	
-	//	새 아이템 추가
-	public BoardVo insertItem(BoardVo item) {
-		boardMapper.insertItem(item);
-		//	새로 생성된 item의 PK
-		Integer id = item.getId();
-		return boardMapper.selectById(id);
-	}
-	
-	
-	//	아이템 삭제
-	public int deleteItem(Integer id) {
-		return boardMapper.deleteItem(id);
-	}	
+
 }

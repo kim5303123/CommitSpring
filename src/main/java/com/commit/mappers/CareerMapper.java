@@ -15,9 +15,6 @@ public interface CareerMapper {
 //	<insert id="careerInsert" parameterType="CareerVo">
 	int careerInsert(CareerVo career);
 	
-//	<insert id="careerInsert2" parameterType="CareerVo">
-//	int careerInsertNull(@Param("userId") int userId);
-	
 //	<update id="careerUpdate" parameterType="CareerVo">
 	int careerUpdate(CareerVo career);
 	

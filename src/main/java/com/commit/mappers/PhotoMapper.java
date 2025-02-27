@@ -3,7 +3,6 @@ package com.commit.mappers;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.commit.repository.vo.PhotoVo;
-import com.commit.repository.vo.ProfileVo;
 
 @Mapper
 public interface PhotoMapper {
