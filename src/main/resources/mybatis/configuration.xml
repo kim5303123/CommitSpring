@@ -12,6 +12,7 @@
 		<typeAlias alias="PhotoVo" type="com.commit.repository.vo.PhotoVo"/>
 		<typeAlias alias="ProfileVo" type="com.commit.repository.vo.ProfileVo"/>
 		<typeAlias alias="ReviewVo" type="com.commit.repository.vo.ReviewVo"/>
+		<typeAlias alias="MypageVo" type="com.commit.repository.vo.MypageVo"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="mybatis/mappers/board.xml" />
@@ -23,6 +24,7 @@
 		<mapper resource="mybatis/mappers/photo.xml" />
 		<mapper resource="mybatis/mappers/profile.xml" />
 		<mapper resource="mybatis/mappers/review.xml" />
+		<mapper resource="mybatis/mappers/mypage.xml" />
 	</mappers>
 </configuration>	
  

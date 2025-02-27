@@ -26,8 +26,6 @@ public class ReviewVo {
 	//	별점
 	private String rating;
 	
-
-	//
     // 추가 필드
     private Integer userId;	 
 }

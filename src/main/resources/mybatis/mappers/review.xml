@@ -49,5 +49,16 @@
 		WHERE
 			u.id = #{userId}
 	</insert>
+	
+	<select id="selectMypage" resultType="mypageVo">
+		select id
+		,mypage_id as
+		mypageId
+		,title
+		,contents
+		,reg_date as regDate
+		,rating
+		from review
+	</select>
 
 </mapper>
