@@ -41,4 +41,8 @@ public class ReviewService {
         return mypageMapper.mypageSelect(id);
     }
 	
+	public List<ReviewVo> selectReviewsById(Integer id) {
+		return reviewMapper.selectReviewsById(id);
+	}
+	
 }

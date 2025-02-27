@@ -16,7 +16,7 @@ public interface ReviewMapper {
 	
 	int insertReview(ReviewVo reviewVo);
 	
-	
+	List<ReviewVo> selectReviewsById(Integer id);
 
 
 }

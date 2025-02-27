@@ -32,6 +32,25 @@
 		from review
 		where id=#{id}
 	</select>
+	
+	<!-- RETRIEVE: GET -->
+	<select id="selectReviewsById" parameterType="int"
+		resultType="map">
+		select 
+		r.id
+		,r.mypage_id as mypageId
+		,r.title
+		,r.contents
+		,r.reg_date as regDate
+		,r.rating
+		FROM 
+    	user u
+		JOIN 
+    	mypage m ON u.id = m.user_id
+		JOIN 
+    	review r ON m.id = r.mypage_id
+		WHERE u.id = #{id}
+	</select>
 
 	<!-- INSERT: POST -->	
 	<insert id="insertReview" parameterType="map">

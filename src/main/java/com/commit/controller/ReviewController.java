@@ -63,6 +63,17 @@ public class ReviewController {
         }
 		
 	}
+	
+//	id로 검색
+	@GetMapping("/list/{id}")
+    public ResponseEntity<List<ReviewVo>> getReviewsById(@PathVariable Integer id) {
+        List<ReviewVo> items = reviewService.selectReviewsById(id);
+        if (items != null) {
+            return ResponseEntity.ok(items);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 
 	
 }
